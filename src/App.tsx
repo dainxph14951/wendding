@@ -11,7 +11,7 @@ import "./index.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
@@ -85,16 +85,6 @@ function App() {
       qrCodeGrom="/qr-n.jpg"
       qrCodeBride="/qr-n.jpg"
     />,
-  ];
-
-  const menuItems = [
-    "Chào Mừng",
-    "Câu Chuyện",
-    "Kết Hôn",
-    "Kỷ Niệm",
-    "Chi Tiết",
-    "Xác Nhận",
-    "Cảm Ơn",
   ];
 
   // Handle scroll to section
@@ -183,15 +173,6 @@ function App() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentPage, sections.length]);
-
-  const handleNavigate = (index: number) => {
-    if (index === -1) {
-      setIsMenuOpen(!isMenuOpen);
-    } else {
-      setCurrentPage(index);
-      setIsMenuOpen(false);
-    }
-  };
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-white">
