@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 interface MemoriesProps {
   images: { src: string; alt: string }[];
@@ -6,24 +6,8 @@ interface MemoriesProps {
 
 export const Memories: React.FC<MemoriesProps> = ({ images }) => {
   const rootRef = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.15 },
-    );
-    observer.observe(el);
-    return () => observer.unobserve(el);
-  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
