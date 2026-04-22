@@ -30,7 +30,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   groomName,
   bridePhone,
   brideName,
-  mapEmbed,
   story,
 }) => {
   const rootRef = useRef<HTMLElement | null>(null);
