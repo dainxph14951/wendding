@@ -22,16 +22,13 @@ export const ThankYou: React.FC<ThankYouProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.15 },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => observer.unobserve(el);
   }, []);
   return (
     <section
@@ -79,16 +76,46 @@ export const ThankYou: React.FC<ThankYouProps> = ({
           <div className="grid grid-cols-2 gap-2">
             {/* Groom Section */}
             <div className="bg-rose rounded-lg p-2 space-y-3 text-left">
-              <h3 className="text-lg font-serif text-burgundy mb-4">GROOM</h3>
-              <p className="text-gray-700 font-light">
+              <h3
+                className={`text-lg font-serif text-burgundy mb-4 transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.5s" }}
+              >
+                GROOM
+              </h3>
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.6s" }}
+              >
                 <span className="font-medium text-burgundy">STK:</span>{" "}
                 9386300093
               </p>
-              <p className="text-gray-700 font-light">
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.7s" }}
+              >
                 <span className="font-medium text-burgundy">Ngân hàng:</span>{" "}
                 Viecombank
               </p>
-              <p className="text-gray-700 font-light">
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.8s" }}
+              >
                 <span className="font-medium text-burgundy">CTK:</span> Nguyễn
                 Xuân Đại
               </p>
@@ -105,16 +132,46 @@ export const ThankYou: React.FC<ThankYouProps> = ({
 
             {/* Bride Section */}
             <div className="bg-rose rounded-lg p-2 space-y-3 text-left">
-              <h3 className="text-lg font-serif text-burgundy mb-4">BRIDE</h3>
-              <p className="text-gray-700 font-light">
+              <h3
+                className={`text-lg font-serif text-burgundy mb-4 transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.5s" }}
+              >
+                BRIDE
+              </h3>
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.6s" }}
+              >
                 <span className="font-medium text-burgundy">STK:</span>{" "}
                 9386300093
               </p>
-              <p className="text-gray-700 font-light">
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.7s" }}
+              >
                 <span className="font-medium text-burgundy">Ngân hàng:</span>{" "}
                 Viecombank
               </p>
-              <p className="text-gray-700 font-light">
+              <p
+                className={`text-gray-700 font-light transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-12"
+                }`}
+                style={{ transitionDelay: "0.8s" }}
+              >
                 <span className="font-medium text-burgundy">CTK:</span> Nguyễn
                 Hồng Nhung
               </p>

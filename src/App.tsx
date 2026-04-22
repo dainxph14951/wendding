@@ -6,6 +6,8 @@ import { Memories } from "./components/Memories";
 import { EventDetails } from "./components/EventDetails";
 import { ThankYou } from "./components/ThankYou";
 import { MusicToggle } from "./components/MusicToggle";
+import { Confetti } from "./components/Confetti";
+import { PetalFall } from "./components/PetalFall";
 // import { NavMenu } from "./components/NavMenu";
 import "./index.css";
 
@@ -27,23 +29,23 @@ function App() {
     <OurStory
       key="story"
       title="OUR STORY"
-      story="Chúng mình tin rằng trên thế gian này, có những người, những chuyện, và những tình yêu. Ngay từ lần đầu gặp gỡ, đã là định mệnh gắn bó suốt đời. Đã là duyên, như một cái cây âm thầm lớn lên trong tim, suốt cả kiếp này và những kiếp sau. Trên hành trình kỳ diệu này, chúng ta nhất định sẽ gặp được một cực quang thuộc về riêng mình. Chúng mình tin vào một tình yêu nóng chảy. Chúng mình tin vào từ trường giữa hai ta, sẽ dẫn lối để chúng ta nhận được một lời tỏ tình – vị trăng trong, vị lắng man."
+      story="Chúng mình tin rằng, giữa nhân gian rộng lớn, luôn tồn tại những người, những chuyện và những mối chân tình mà ngay từ khoảnh khắc đầu tiên chạm mắt, đã định sẵn là duyên nợ cả đời. Cái duyên ấy tựa như mầm cây âm thầm bám rễ trong tim, xanh tươi suốt kiếp này và cả những luân hồi mai sau. Trên hành trình kỳ diệu của nhân sinh, mỗi chúng ta rồi sẽ tìm thấy một dải cực quang của riêng mình. Chúng mình tin vào tình yêu thuần khiết, tin vào sợi dây từ trường vô hình sẽ dẫn lối để ta được lắng nghe một lời tỏ tình—trong trẻo như ánh trăng và nồng nàn vị lắng đọng của thời gian."
       quote="Xuân Đại ❤ Hồng Nhung"
     />,
     <WeddingDay
       key="wedding"
       mainText="WE GET MARRIED"
-      description="Sao trời rực rỡ, Em là điều dự đoán nhất."
+      description="Giữa muôn vạn vì sao rực rỡ, em chính là định mệnh hiển nhiên nhất của đời anh."
       shortStories={[
         {
-          title: "Tình yêu",
+          title: "Tình yêu...",
           content:
-            "là khi em nhìn anh. Là ánh mắt đó, những niệm vui thầm lắng. Là khi đôi tay không cần nói lời. Vẫn cảm nhận được trái tim chung một nhịp.",
+            "Là khi đôi mắt ta chạm nhau, thắp lên những niềm vui thầm lặng. Là khi đôi tay dù chẳng cất lời, vẫn cảm nhận được hai trái tim đang hòa cùng một nhịp.",
         },
         {
-          title: "Chúng mình luôn tin rằng",
+          title: "Chúng mình luôn tin rằng...",
           content:
-            "Tình yêu đẹp nhất là sự song hành. Gặp nhau trong ánh sáng tình khiết, thập sáng tuần buổc đi. Thu lại từng khoảnh khắc yêu thương. Cuộc đời là hành trình kỳ diệu. Chúng mình cùng nhau tìm kiếm bản thân và khám phá thế giới.",
+            "Tình yêu đẹp nhất là sự song hành. Ta gặp nhau trong ánh sáng tinh khôi, cùng thắp lửa cho mỗi bước chân đi và nâng niu từng khoảnh khắc vụn vặt nhất. Cuộc đời là một hành trình kỳ diệu, nơi chúng mình không chỉ cùng nhau khám phá thế giới, mà còn tìm thấy chính bản thân mình trong tình yêu của đối phương.",
         },
       ]}
     />,
@@ -162,6 +164,7 @@ function App() {
 
   // Handle arrow keys
   useEffect(() => {
+    console.log("currentPage", currentPage);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" && currentPage < sections.length - 1) {
         setCurrentPage(currentPage + 1);
@@ -177,7 +180,8 @@ function App() {
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-white">
       <MusicToggle audioUrl="/nhac_nen.mp3" />
-
+      {currentPage === 0 && <PetalFall />}
+      {currentPage === 0 && <Confetti />}
       {/* <NavMenu
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}

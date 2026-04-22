@@ -22,16 +22,13 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.15 },
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => observer.unobserve(el);
   }, []);
 
   const renderAnimatedLetters = (text: string) =>
