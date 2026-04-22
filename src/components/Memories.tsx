@@ -6,10 +6,9 @@ interface MemoriesProps {
 
 export const Memories: React.FC<MemoriesProps> = ({ images }) => {
   const rootRef = useRef<HTMLElement | null>(null);
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -26,105 +25,260 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
     return () => observer.unobserve(el);
   }, []);
 
-  const handleScroll = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const { scrollLeft, scrollWidth, clientWidth } = container;
-    setCanScrollLeft(scrollLeft > 0);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
-    container.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => container.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleThumbnailClick = (idx: number) => {
+    setCurrentIndex(idx);
+  };
 
   return (
     <section
       ref={rootRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative w-full flex flex-col items-center justify-center overflow-hidden"
       style={{ background: "#fbf7f1" }}
     >
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-6 py-12">
-        {/* Horizontal scroll container */}
-        <div className="relative w-full">
+        {/* Title */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-red-900">
+              ALBUM
+            </h1>
+            <span className="text-xl md:text-2xl text-gray-600">of</span>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-red-900">
+              LOVE
+            </h1>
+          </div>
+          <div className="flex justify-center mt-2">
+            <span className="text-2xl">❤️</span>
+          </div>
+        </div>
+
+        {/* Main Image Container */}
+        <div className="relative w-full max-w-5xl mb-12 mx-auto px-4">
+          {/* Main Image with frame */}
           <div
-            ref={scrollContainerRef}
-            className="w-full overflow-x-auto snap-x snap-mandatory"
+            className="relative bg-white border-8 border-red-800 rounded-3xl overflow-hidden shadow-2xl"
+            style={{ aspectRatio: "4/3" }}
           >
-            <div className="flex gap-6 pb-4" style={{ minWidth: "100%" }}>
-              {images.map((image, idx) => (
-                <div
-                  key={idx}
-                  className={`flex-shrink-0 snap-center transition-opacity duration-700 ${
-                    isVisible ? "opacity-100 animate-fadeUp" : "opacity-0"
-                  }`}
-                  style={{ animationDelay: `${idx * 0.1}s` }}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="max-h-[70vh] max-w-[90vw] object-cover rounded-lg shadow-lg"
-                  />
-                </div>
-              ))}
-            </div>
+            <img
+              src={images[currentIndex]?.src}
+              alt={images[currentIndex]?.alt}
+              className="w-full h-full object-cover"
+            />
+
+            {/* Fullscreen button */}
+            <button
+              onClick={() => setIsFullscreen(true)}
+              className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
+            >
+              <svg
+                className="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {/* Top-left arrow */}
+                <path
+                  d="M3 3l6 0M3 3L3 9"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Top-right arrow */}
+                <path
+                  d="M21 3l-6 0M21 3L21 9"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Bottom-left arrow */}
+                <path
+                  d="M3 21l6 0M3 21L3 15"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                {/* Bottom-right arrow */}
+                <path
+                  d="M21 21l-6 0M21 21L21 15"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
           </div>
 
-          {/* Left arrow indicator */}
-          {canScrollLeft && (
-            <div className="absolute left-2 top-1/2 transform -translate-y-1/2 animate-bounce pointer-events-none">
-              <svg
-                className="w-8 h-8 text-burgundy opacity-70"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15 19l-7-7 7-7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-          )}
+          {/* Left Arrow */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition"
+          >
+            <svg
+              className="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-          {/* Right arrow indicator */}
-          {canScrollRight && (
-            <div className="absolute right-2 top-1/2 transform -translate-y-1/2 animate-bounce pointer-events-none">
-              <svg
-                className="w-8 h-8 text-burgundy opacity-70"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 5l7 7-7 7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </div>
-          )}
+          {/* Right Arrow */}
+          <button
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 bg-white rounded-full p-3 shadow-lg hover:bg-gray-100 transition"
+          >
+            <svg
+              className="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
 
-        {/* Scroll indicator dots */}
-        <div className="flex gap-2 mt-6 justify-center">
-          {images.map((_, idx) => (
-            <div
+        {/* Thumbnails */}
+        <div className="flex gap-2 justify-center flex-wrap max-w-5xl">
+          {images.map((image, idx) => (
+            <button
               key={idx}
-              className="w-2 h-2 rounded-full bg-burgundy opacity-40"
-            />
+              onClick={() => handleThumbnailClick(idx)}
+              className={`relative w-16 h-16 rounded-lg overflow-hidden border-4 transition-all ${
+                currentIndex === idx
+                  ? "border-red-800 scale-110"
+                  : "border-gray-300 hover:border-red-600"
+              }`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+              {currentIndex === idx && (
+                <div className="absolute top-1 right-1">
+                  <span className="text-red-600 text-lg">❤️</span>
+                </div>
+              )}
+            </button>
           ))}
         </div>
+
+        {/* Image counter */}
+        <div className="mt-8 text-center text-gray-600">
+          <p className="text-sm">
+            {currentIndex + 1} / {images.length}
+          </p>
+        </div>
+
+        {/* Fullscreen Modal */}
+        {isFullscreen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center"
+            onClick={() => setIsFullscreen(false)}
+          >
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setIsFullscreen(false)}
+                className="absolute top-20 right-3 text-white bg-gray-800 bg-opacity-50 rounded-full p-3 hover:bg-opacity-75 transition z-50"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              {/* Fullscreen Image */}
+              <img
+                src={images[currentIndex]?.src}
+                alt={images[currentIndex]?.alt}
+                className="max-w-90vw max-h-90vh object-contain"
+              />
+
+              {/* Navigation in Fullscreen */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrev();
+                }}
+                className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 rounded-full p-4 hover:bg-opacity-75 transition"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+                className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white bg-gray-800 bg-opacity-50 rounded-full p-4 hover:bg-opacity-75 transition"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+
+              {/* Counter in Fullscreen */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white text-sm bg-gray-800 bg-opacity-50 px-4 py-2 rounded-full">
+                {currentIndex + 1} / {images.length}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

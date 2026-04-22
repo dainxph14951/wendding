@@ -8,13 +8,12 @@ import { ThankYou } from "./components/ThankYou";
 import { MusicToggle } from "./components/MusicToggle";
 import { Confetti } from "./components/Confetti";
 import { PetalFall } from "./components/PetalFall";
-// import { NavMenu } from "./components/NavMenu";
 import "./index.css";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
@@ -52,6 +51,42 @@ function App() {
     <Memories
       key="memories"
       images={[
+        {
+          src: "/img-2.jpg",
+          alt: "couple 1",
+        },
+        {
+          src: "/img-1.jpg",
+          alt: "couple 2",
+        },
+        {
+          src: "/img-welcome.webp",
+          alt: "couple 3",
+        },
+        {
+          src: "/img-2.jpg",
+          alt: "couple 1",
+        },
+        {
+          src: "/img-1.jpg",
+          alt: "couple 2",
+        },
+        {
+          src: "/img-welcome.webp",
+          alt: "couple 3",
+        },
+        {
+          src: "/img-2.jpg",
+          alt: "couple 1",
+        },
+        {
+          src: "/img-1.jpg",
+          alt: "couple 2",
+        },
+        {
+          src: "/img-welcome.webp",
+          alt: "couple 3",
+        },
         {
           src: "/img-2.jpg",
           alt: "couple 1",
@@ -164,7 +199,6 @@ function App() {
 
   // Handle arrow keys
   useEffect(() => {
-    console.log("currentPage", currentPage);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" && currentPage < sections.length - 1) {
         setCurrentPage(currentPage + 1);
@@ -179,16 +213,9 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-white">
-      <MusicToggle audioUrl="/nhac_nen.mp3" />
+      <MusicToggle audioUrl="/em-dong-y.mp3" />
       {currentPage === 0 && <PetalFall />}
       {currentPage === 0 && <Confetti />}
-      {/* <NavMenu
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        onNavigate={handleNavigate}
-        menuItems={menuItems}
-        currentPage={currentPage}
-      /> */}
 
       {/* Main container */}
       <div
@@ -212,35 +239,6 @@ function App() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Dot pagination */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
-        {sections.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentPage(idx)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              idx === currentPage
-                ? "bg-burgundy w-8"
-                : "bg-gray-300 hover:bg-gray-400"
-            }`}
-            aria-label={`Go to section ${idx + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Bottom navigation for mobile */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-40 lg:hidden">
-        {sections.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentPage(idx)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              idx === currentPage ? "bg-burgundy w-6" : "bg-gray-300"
-            }`}
-          />
-        ))}
       </div>
     </div>
   );

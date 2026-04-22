@@ -55,8 +55,8 @@ export const ThankYou: React.FC<ThankYouProps> = ({
         </p>
 
         <p
-          className={`text-xl md:text-2xl text-gray-700 font-light italic max-w-md transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
+          className={`text-xl md:text-2xl text-gray-700 font-light italic transition-opacity duration-700 ${
+            isVisible ? "opacity-100" : "opacity-10"
           }`}
           style={{ transitionDelay: "0.3s" }}
         >
