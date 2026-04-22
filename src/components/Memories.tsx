@@ -8,6 +8,7 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Set<number>>(new Set());
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -19,6 +20,11 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
 
   const handleThumbnailClick = (idx: number) => {
     setCurrentIndex(idx);
+  };
+
+  const handleImageError = (idx: number) => {
+    setImageErrors((prev) => new Set(prev).add(idx));
+    console.error(`Failed to load image ${idx}:`, images[idx]?.src);
   };
 
   return (
@@ -51,11 +57,25 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
             className="relative bg-white border-8 border-red-800 rounded-3xl overflow-hidden shadow-2xl"
             style={{ aspectRatio: "4/3" }}
           >
-            <img
-              src={images[currentIndex]?.src}
-              alt={images[currentIndex]?.alt}
-              className="w-full h-full object-cover"
-            />
+            {imageErrors.has(currentIndex) ? (
+              <div className="w-full h-full flex items-center justify-center bg-gray-100">
+                <div className="text-center">
+                  <p className="text-gray-500 mb-2">Không thể tải ảnh</p>
+                  <p className="text-xs text-gray-400">
+                    Vui lòng kiểm tra link Google Drive
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={images[currentIndex]?.src}
+                alt={images[currentIndex]?.alt}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={() => handleImageError(currentIndex)}
+                crossOrigin="anonymous"
+              />
+            )}
 
             {/* Fullscreen button */}
             <button
@@ -157,6 +177,9 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
                 src={image.src}
                 alt={image.alt}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                onError={() => handleImageError(idx)}
+                crossOrigin="anonymous"
               />
               {currentIndex === idx && (
                 <div className="absolute top-1 right-1">
@@ -209,6 +232,8 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
                 src={images[currentIndex]?.src}
                 alt={images[currentIndex]?.alt}
                 className="max-w-90vw max-h-90vh object-contain"
+                onError={() => handleImageError(currentIndex)}
+                crossOrigin="anonymous"
               />
 
               {/* Navigation in Fullscreen */}

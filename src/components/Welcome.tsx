@@ -11,7 +11,7 @@ interface WelcomeProps {
 export const Welcome: React.FC<WelcomeProps> = ({
   groomName,
   brideName,
-  bgImage = "/img-welcome.webp",
+  bgImage = "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
 }) => {
   return (
     <section className="relative w-full min-h-screen overflow-hidden text-black">

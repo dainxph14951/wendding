@@ -52,51 +52,15 @@ function App() {
       key="memories"
       images={[
         {
-          src: "/img-2.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-2_wuqfzl.jpg",
           alt: "couple 1",
         },
         {
-          src: "/img-1.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-1_tebgdn.jpg",
           alt: "couple 2",
         },
         {
-          src: "/img-welcome.webp",
-          alt: "couple 3",
-        },
-        {
-          src: "/img-2.jpg",
-          alt: "couple 1",
-        },
-        {
-          src: "/img-1.jpg",
-          alt: "couple 2",
-        },
-        {
-          src: "/img-welcome.webp",
-          alt: "couple 3",
-        },
-        {
-          src: "/img-2.jpg",
-          alt: "couple 1",
-        },
-        {
-          src: "/img-1.jpg",
-          alt: "couple 2",
-        },
-        {
-          src: "/img-welcome.webp",
-          alt: "couple 3",
-        },
-        {
-          src: "/img-2.jpg",
-          alt: "couple 1",
-        },
-        {
-          src: "/img-1.jpg",
-          alt: "couple 2",
-        },
-        {
-          src: "/img-welcome.webp",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
           alt: "couple 3",
         },
       ]}
@@ -119,8 +83,8 @@ function App() {
       key="thankyou"
       weddingDate="20.08"
       message="Hạnh phúc được bạn ở bên chúng mình"
-      qrCodeGrom="/qr-n.jpg"
-      qrCodeBride="/qr-n.jpg"
+      qrCodeGrom="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
+      qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
     />,
   ];
 
@@ -213,7 +177,7 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-white">
-      <MusicToggle audioUrl="/em-dong-y.mp3" />
+      <MusicToggle audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776850188/em-dong-y_wptufn.mp3" />
       {currentPage === 0 && <PetalFall />}
       {currentPage === 0 && <Confetti />}
 
