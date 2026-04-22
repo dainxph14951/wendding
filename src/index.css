@@ -71,6 +71,60 @@ html, body, #root {
   pointer-events: none;
 }
 
+/* Envelope opening animation - left flap */
+@keyframes envelopeLeftOpen {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg);
+    transform-origin: left center;
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(-180deg) translateX(-30px);
+    transform-origin: left center;
+  }
+}
+
+/* Envelope opening animation - right flap */
+@keyframes envelopeRightOpen {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg);
+    transform-origin: right center;
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(180deg) translateX(30px);
+    transform-origin: right center;
+  }
+}
+
+/* Ribbon animation */
+
+
+/* Envelope wrapper background */
+@keyframes envelopeBackgroundFade {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.envelope-wrapper {
+  perspective: 1200px;
+}
+
+.envelope-left-flap {
+  animation: envelopeLeftOpen 2s ease-in-out forwards;
+}
+
+.envelope-right-flap {
+  animation: envelopeRightOpen 2s ease-in-out forwards;
+}
+
+.envelope-background {
+  animation: envelopeBackgroundFade 2s ease-in-out forwards;
+}
+
 /* Letter-by-letter reveal */
 @keyframes letterIn {
   0% { opacity: 0; transform: translateY(12px) rotate(-2deg) scale(0.98); }
