@@ -67,7 +67,7 @@ function App() {
     />,
     <EventDetails
       key="details"
-      weddingDate="2025-08-20"
+      weddingDate="2026-08-20"
       weddingTime="Ngày 17 tháng 07 ấm lịch 12:00 PM"
       venue="Trống Đông Palace"
       address="123 Main Street, Hanoi, Vietnam"
@@ -163,6 +163,7 @@ function App() {
 
   // Handle arrow keys
   useEffect(() => {
+    console.log("16:32 - 22/04");
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown" && currentPage < sections.length - 1) {
         setCurrentPage(currentPage + 1);

@@ -42,19 +42,43 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
     seconds: 0,
   });
 
+  const invitationCards = [
+    {
+      title: "TIỆC CƯỚI NHÀ TRAI",
+      schedule: "CHỦ NHẬT - 09:30",
+      date: "20 . 12 . 2026",
+      lunarDate: "Tức Ngày 16 tháng 10 năm Bính Ngọ",
+      locationTitle: "TẠI TƯ GIA NHÀ TRAI",
+      locationAddress: "Tân Mỹ - Tiên Phong - Bắc Ninh",
+      mapLink: "https://maps.google.com",
+    },
+    {
+      title: "TIỆC CƯỚI NHÀ GÁI",
+      schedule: "THỨ BẢY - 18 : 00",
+      date: "19 . 12 . 2026",
+      lunarDate: "Tức Ngày 15 tháng 10 năm Bính Ngọ",
+      locationTitle: "TẠI NHÀ HÀNG SEN VÀNG",
+      locationAddress: "Phú Cát - Quốc Oai - Hà Nội",
+      mapLink: "https://maps.google.com",
+    },
+  ];
+
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
         });
       },
       { threshold: 0.15 },
     );
     observer.observe(el);
-    return () => observer.unobserve(el);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -96,6 +120,68 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
         >
           COUNTDOWN TIME
         </h2>
+
+        {/* Invitation Section */}
+        <div
+          className={`mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            transform: isVisible ? "translateY(0)" : "translateY(24px)",
+            transitionDelay: "0.25s",
+          }}
+        >
+          <p className="text-center text-2xl md:text-3xl font-serif text-gray-900 mb-6">
+            THƯ MỜI THAM DỰ
+          </p>
+
+          <div className="space-y-6">
+            {invitationCards.map((invitationCard, index) => (
+              <article
+                key={invitationCard.title}
+                className={`rounded-[2rem] bg-[#7f0b11] text-white px-6 py-8 text-center shadow-xl transition-all duration-700 ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+                style={{
+                  transform: isVisible
+                    ? "translateY(0)"
+                    : index % 2 === 0
+                      ? "translateX(-24px)"
+                      : "translateX(24px)",
+                  transitionDelay: `${0.35 + index * 0.1}s`,
+                }}
+              >
+                <p className="text-2xl md:text-3xl font-serif font-semibold leading-tight">
+                  {invitationCard.title}
+                </p>
+                <p className="mt-3 text-lg md:text-xl font-medium">
+                  {invitationCard.schedule}
+                </p>
+                <p className="mt-3 text-3xl md:text-4xl font-semibold text-[#d4af37]">
+                  {invitationCard.date}
+                </p>
+                <p className="mt-3 text-sm md:text-base font-light">
+                  {invitationCard.lunarDate}
+                </p>
+                <p className="mt-6 text-2xl md:text-3xl font-serif font-semibold leading-tight">
+                  {invitationCard.locationTitle}
+                </p>
+                <p className="mt-3 text-lg md:text-xl font-medium">
+                  {invitationCard.locationAddress}
+                </p>
+
+                <a
+                  href={invitationCard.mapLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-7 inline-flex rounded-2xl bg-white px-10 py-3 text-2xl font-medium text-gray-900 transition-colors hover:bg-gray-100"
+                >
+                  Xem chỉ đường
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
 
         {/* Countdown */}
         <div className="grid grid-cols-4 gap-4 mb-12 text-center">
@@ -209,21 +295,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             <p className="text-gray-600 font-light">{address}</p>
           </div>
         </div>
-
-        {/* Map */}
-        {mapEmbed && (
-          <div
-            className={`mb-12 rounded-lg overflow-hidden shadow-lg transition-all duration-700 ${
-              isVisible ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              transform: isVisible ? "translateX(0)" : "translateX(30px)",
-              transitionDelay: "1s",
-            }}
-          >
-            <div dangerouslySetInnerHTML={{ __html: mapEmbed }} />
-          </div>
-        )}
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

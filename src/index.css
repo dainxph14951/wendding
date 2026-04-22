@@ -99,6 +99,26 @@ html, body, #root {
   }
 }
 
+/* Gift box wiggle animation - shake like opening a gift */
+@keyframes wiggle {
+  0%, 100% {
+    transform: translateX(0) rotateZ(0deg);
+  }
+  25% {
+    transform: translateX(-8px) rotateZ(-3deg);
+  }
+  50% {
+    transform: translateX(0) rotateZ(0deg);
+  }
+  75% {
+    transform: translateX(8px) rotateZ(3deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
 /* Ribbon animation */
 
 
