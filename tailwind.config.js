@@ -8,6 +8,14 @@ export default {
         rose: "#F8E8E0",
         gold: "#D4AF37",
       },
+      animation: {
+        "border-spin": "border-spin 4s linear infinite",
+      },
+      keyframes: {
+        "border-spin": {
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
       fontFamily: {
         serif: ["Playfair Display", "serif"],
         sans: ["Poppins", "sans-serif"],

@@ -64,6 +64,18 @@ function App() {
           src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
           alt: "couple 3",
         },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-2_wuqfzl.jpg",
+          alt: "couple 1",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-1_tebgdn.jpg",
+          alt: "couple 2",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
+          alt: "couple 3",
+        },
       ]}
     />,
     <EventDetails
@@ -180,28 +192,81 @@ function App() {
   return (
     <div className="relative w-screen h-screen overflow-hidden app-shell">
       {!isInvitationOpen && (
-        <div className="invitation-overlay">
-          <div className="invitation-card">
-            <div className="invite-seal">
+        <div className="invitation-overlay fixed inset-0 z-[100] flex items-center justify-center bg-[#fdfaf6] transition-opacity duration-1000">
+          {/* Lớp nền mờ ảo phía sau */}
+          <div
+            className="absolute inset-0 bg-cover bg-center blur-sm brightness-[0.4] scale-110"
+            style={{
+              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp')`,
+            }}
+          />
+
+          {/* Tấm thiệp chính */}
+          <div className="invitation-card relative w-[85%] max-w-[380px] bg-white rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center border border-[#d4af37]/20 animate-in fade-in zoom-in duration-1000">
+            {/* Viền chỉ vàng mảnh bên trong tạo độ tinh tế */}
+            <div className="absolute inset-3 border border-[#d4af37]/10 rounded-[1.8rem] pointer-events-none" />
+
+            {/* Con dấu sáp (Pulse & Wiggle) */}
+            <div className="invite-seal relative mx-auto mb-6 w-20 h-20 md:w-24 md:h-24">
+              <div className="absolute inset-0 bg-[#d4af37]/20 rounded-full blur-xl animate-ping opacity-60" />
               <img
                 src="https://res.cloudinary.com/dvglujyon/image/upload/v1776916775/pngegg_1_zizqbj.png"
-                alt=""
+                alt="Seal"
+                className="relative z-10 w-full h-full object-contain drop-shadow-lg animate-[wiggle_3s_ease-in-out_infinite]"
               />
             </div>
-            <p className="invite-name">Xuân Đại</p>
-            <p className="invite-name">&amp;</p>
-            <p className="invite-name">Hồng Nhung</p>
-            <div className="invite-divider" />
-            <p className="invite-date">10 tháng 5, 2026</p>
-            <p className="invite-label">Thân Mời</p>
+
+            {/* Tên cặp đôi */}
+            <div className="space-y-1 mb-6">
+              <p className="invite-name text-2xl md:text-3xl font-serif text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
+                Xuân Đại
+              </p>
+              <p className="invite-name text-xl font-serif text-[#d4af37] italic font-light">
+                &amp;
+              </p>
+              <p className="invite-name text-2xl md:text-3xl font-serif text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
+                Hồng Nhung
+              </p>
+            </div>
+
+            {/* Đường kẻ phân cách nghệ thuật */}
+            <div className="invite-divider flex items-center justify-center gap-3 mb-6">
+              <div className="h-[0.5px] w-10 bg-[#d4af37]/40" />
+              <span className="text-[#d4af37] text-[10px]">✨</span>
+              <div className="h-[0.5px] w-10 bg-[#d4af37]/40" />
+            </div>
+
+            {/* Thông tin ngày tháng */}
+            <p className="invite-date text-[#800020]/70 font-serif italic text-sm md:text-base mb-1">
+              10 tháng 5, 2026
+            </p>
+            <p className="invite-label text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-8">
+              Thân Mời
+            </p>
+
+            {/* Nút mở thiệp với hiệu ứng mượt */}
             <button
               type="button"
-              className="invite-button"
+              className="invite-button relative overflow-hidden group bg-[#800020] text-white px-10 py-3 rounded-full font-serif tracking-[0.2em] shadow-lg hover:bg-red-800 transition-all duration-300 hover:scale-105 active:scale-95"
               onClick={() => setIsInvitationOpen(true)}
             >
-              Mở thiệp
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <span className="relative z-10 text-xs md:text-sm font-bold">
+                MỞ THIỆP
+              </span>
             </button>
           </div>
+
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(4deg); }
+    }
+  `,
+            }}
+          />
         </div>
       )}
 

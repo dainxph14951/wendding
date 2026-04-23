@@ -35,12 +35,15 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
     text.split("").map((ch, i) => (
       <span
         key={i}
-        className={`letter ${i % 2 === 0 ? "" : "letter-slow"}`}
-        style={{ animationDelay: `${i * 0.035}s` }}
+        className={`inline-block transition-all duration-700 ease-out ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+        }`}
+        style={{ transitionDelay: `${i * 0.05}s` }}
       >
         {ch === " " ? "\u00A0" : ch}
       </span>
     ));
+
   const bgImage =
     image ||
     "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-wedding-day_kg9eyq.jpg";
@@ -48,62 +51,82 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
   return (
     <section
       ref={rootRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-24"
       style={{ background: "#fbf7f1" }}
     >
-      {/* Background blurred image from public */}
-      <div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          filter: "blur(6px) brightness(0.8)",
-          transform: "scale(1.02)",
-        }}
-      />
-      {/* subtle tint overlay to improve text contrast */}
-      <div className="absolute inset-0 bg-white/40" />
+      {/* Background nhẹ nhàng hơn (giảm blur, tăng độ thanh thoát) */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]" />
 
-      {/* Gradient overlays for soft top/bottom edges */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/60 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/60 to-transparent pointer-events-none" />
-
-      <div className="relative z-10 w-full max-w-5xl px-6 py-12">
-        {image && (
+      <div className="relative z-10 w-full max-w-6xl px-6">
+        <div className="relative flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          {/* CỘT TRÁI: ẢNH CHÍNH VỚI VIỀN ÁNH SÁNG (REUSE TỪ BƯỚC 1) */}
           <div
-            className={`mb-12 transition-opacity ${isVisible ? "opacity-100 animate-fadeUp" : "opacity-0"}`}
+            className={`relative w-full md:w-1/2 transition-all duration-[1500ms] ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"}`}
           >
-            <img
-              src={image}
-              alt="Lễ Cưới"
-              className="w-full h-96 object-cover rounded-lg shadow-lg"
-            />
+            {/* Lớp viền ánh sáng chạy quanh ảnh */}
+            <div className="relative p-[6px] overflow-hidden rounded-2xl shadow-2xl group">
+              <div
+                className="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] opacity-50"
+                style={{
+                  background:
+                    "conic-gradient(from 90deg at 50% 50%, #800020 0%, #d4af37 25%, #800020 50%, #d4af37 75%, #800020 100%)",
+                }}
+              />
+              <div className="relative bg-white rounded-xl overflow-hidden aspect-[3/4]">
+                <img
+                  src={bgImage}
+                  alt="Wedding Moment"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+              </div>
+            </div>
+
+            {/* Họa tiết hoa văn góc vàng đồng */}
+            <div className="absolute -top-6 -left-6 w-24 h-24 text-[#d4af37] opacity-40 animate-pulse">
+              <svg viewBox="0 0 100 100" fill="currentColor">
+                <path d="M0 100 C0 40 40 0 100 0 L100 10 L10 10 L10 100 Z" />
+              </svg>
+            </div>
           </div>
-        )}
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-burgundy mb-6 leading-tight">
-              {isVisible ? renderAnimatedLetters(mainText) : mainText}
-            </h2>
 
-            <p
-              className={`text-gray-700 font-light text-base md:text-lg mb-8 italic transition-opacity ${
-                isVisible ? "opacity-100 animate-fadeUp-delay-200" : "opacity-0"
-              }`}
+          {/* CỘT PHẢI: NỘI DUNG CHỮ */}
+          <div className="w-full md:w-1/2 space-y-8">
+            <header className="space-y-4">
+              <p
+                className={`text-[#d4af37] tracking-[0.4em] text-sm font-light transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+              >
+                SAVOUR THE MOMENT
+              </p>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#800020] leading-[1.1]">
+                {renderAnimatedLetters(mainText)}
+              </h2>
+            </header>
+
+            <div
+              className={`relative transition-all duration-1000 delay-[1000ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              {description}
-            </p>
+              <div className="absolute -left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#d4af37] to-transparent" />
+              <p className="text-gray-600 font-light text-lg italic leading-relaxed">
+                {description}
+              </p>
+            </div>
 
+            {/* Short Stories thiết kế dạng thẻ mảnh (Stationery Style) */}
             {shortStories.length > 0 && (
-              <div className="space-y-6">
+              <div className="space-y-8 pt-6">
                 {shortStories.map((story, idx) => (
                   <div
                     key={idx}
-                    className={`border-l-4 border-gold pl-6 py-4 transition-opacity ${isVisible ? "opacity-100 animate-fadeUp-delay-400" : "opacity-0"}`}
+                    className={`group transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    style={{ transitionDelay: `${1.2 + idx * 0.2}s` }}
                   >
-                    <h3 className="text-burgundy font-serif text-xl mb-2">
-                      {story.title}
-                    </h3>
-                    <p className="text-gray-600 font-light leading-relaxed">
+                    <div className="flex items-center gap-4 mb-2">
+                      <span className="w-8 h-[1px] bg-[#d4af37]" />
+                      <h3 className="text-[#800020] font-serif text-xl tracking-wide">
+                        {story.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-500 font-light leading-relaxed pl-12 text-sm md:text-base border-l border-transparent group-hover:border-[#d4af37]/30 transition-colors">
                       {story.content}
                     </p>
                   </div>
@@ -114,21 +137,41 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <svg
-          className="w-6 h-6 text-burgundy"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+      {/* Hiệu ứng hạt lấp lánh nhẹ (Dust) */}
+      {isVisible && (
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-[#d4af37] rounded-full animate-ping opacity-20"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${i * 0.5}s`,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Nút scroll xuống đồng điệu với các phần trên */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+        <div className="w-[1px] h-10 bg-gradient-to-t from-[#800020] to-transparent" />
+        <p className="text-[10px] tracking-[0.2em] text-[#800020] uppercase font-bold">
+          HiHi xem ảnh khum
+        </p>
       </div>
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `,
+        }}
+      />
     </section>
   );
 };

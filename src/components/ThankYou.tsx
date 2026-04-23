@@ -23,22 +23,20 @@ export const ThankYou: React.FC<ThankYouProps> = ({
 }) => {
   const rootRef = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedBanking, setSelectedBanking] = useState<BankingInfo | null>(
-    null,
-  );
+  const [isGiftModalOpen, setIsGiftModalOpen] = useState<boolean>(false);
 
   const bankingInfo: { groom: BankingInfo; bride: BankingInfo } = {
     groom: {
-      name: "GROOM",
+      name: "CHÚ RỂ",
       stk: "9386300093",
-      bank: "Viecombank",
+      bank: "Vietcombank",
       ctk: "Nguyễn Xuân Đại",
       qrCode: qrCodeGrom,
     },
     bride: {
-      name: "BRIDE",
+      name: "CÔ DÂU",
       stk: "9386300093",
-      bank: "Viecombank",
+      bank: "Vietcombank",
       ctk: "Nguyễn Hồng Nhung",
       qrCode: qrCodeBride,
     },
@@ -58,238 +56,236 @@ export const ThankYou: React.FC<ThankYouProps> = ({
     observer.observe(el);
     return () => observer.unobserve(el);
   }, []);
+
   return (
     <section
       ref={rootRef}
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-white to-rose"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#fffafb]"
     >
-      <div className="relative z-10 text-center px-6 space-y-12">
-        <h2
-          className={`text-5xl md:text-7xl font-serif text-burgundy transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: "0.1s" }}
-        >
-          THANK YOU
-        </h2>
+      {/* CSS Animations: Petals, Wiggle, and Glow */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes petal-float {
+              0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+              10% { opacity: 1; }
+              90% { opacity: 1; }
+              100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
+            @keyframes wiggle {
+              0%, 100% { transform: rotate(-3deg); }
+              50% { transform: rotate(3deg); }
+            }
+            @keyframes gold-glow {
+              0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+              50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.7); }
+            }
+            .petal { position: absolute; background: #ffb7c5; border-radius: 150% 0 150% 0; animation: petal-float 10s infinite linear; pointer-events: none; z-index: 1; }
+            .animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+            .animate-gold-glow { animation: gold-glow 2s infinite; }
+          `,
+        }}
+      />
 
-        <p
-          className={`text-4xl md:text-5xl font-light text-burgundy transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: "0.2s" }}
-        >
-          {weddingDate}
-        </p>
-
-        <p
-          className={`text-xl md:text-2xl text-gray-700 font-light italic transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-10"
-          }`}
-          style={{ transitionDelay: "0.3s" }}
-        >
-          {message}
-        </p>
-
+      {/* Falling Petals */}
+      {[...Array(15)].map((_, i) => (
         <div
-          className={`space-y-6 pt-8 max-w-4xl transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: "0.4s" }}
-        >
-          <p className="text-lg text-gray-700 font-light leading-relaxed">
-            🧧 Mọi sự chúc phúc, sự yêu thương cùng những món quà ý nghĩa từ
-            phương xa xin gửi về:
-          </p>
+          key={i}
+          className="petal"
+          style={{
+            left: `${Math.random() * 100}%`,
+            width: `${Math.random() * 15 + 10}px`,
+            height: `${Math.random() * 15 + 10}px`,
+            animationDelay: `${Math.random() * 10}s`,
+            opacity: Math.random() * 0.6,
+          }}
+        />
+      ))}
 
-          {/* Gift Boxes */}
-          <div className="flex justify-center gap-12 py-8">
-            {/* Groom Gift Box */}
-            <button
-              onClick={() => setSelectedBanking(bankingInfo.groom)}
-              className="group relative cursor-pointer transform hover:scale-110 transition-transform duration-300 animate-wiggle"
-            >
-              {/* Gift Box SVG */}
-              <svg
-                className="w-24 h-24 text-pink-200 group-hover:text-pink-300 drop-shadow-lg"
-                viewBox="0 0 200 200"
-                fill="currentColor"
-              >
-                {/* Box body */}
-                <rect
-                  x="40"
-                  y="80"
-                  width="120"
-                  height="90"
-                  fill="none"
-                  stroke="#c41e3a"
-                  strokeWidth="8"
-                  rx="8"
-                />
-                <rect
-                  x="40"
-                  y="80"
-                  width="120"
-                  height="30"
-                  fill="#c41e3a"
-                  rx="8"
-                />
-                {/* Ribbon */}
-                <rect x="95" y="30" width="10" height="140" fill="#d4af37" />
-                <rect x="40" y="75" width="120" height="10" fill="#d4af37" />
-                {/* Bow */}
-                <circle cx="70" cy="50" r="16" fill="#c41e3a" />
-                <circle cx="130" cy="50" r="16" fill="#c41e3a" />
-                <circle cx="100" cy="45" r="20" fill="#c41e3a" />
-                {/* Heart on bow */}
-                <path
-                  d="M100 35 Q105 30 110 35 Q110 40 100 48 Q90 40 90 35 Q95 30 100 35"
-                  fill="#d4af37"
-                />
-              </svg>
-              <p className="mt-2 text-sm text-burgundy font-medium">
-                {bankingInfo.groom.name}
-              </p>
-            </button>
-
-            {/* Bride Gift Box */}
-            <button
-              onClick={() => setSelectedBanking(bankingInfo.bride)}
-              className="group relative cursor-pointer transform hover:scale-110 transition-transform duration-300 animate-wiggle"
-            >
-              {/* Gift Box SVG */}
-              <svg
-                className="w-24 h-24 text-pink-200 group-hover:text-pink-300 drop-shadow-lg"
-                viewBox="0 0 200 200"
-                fill="currentColor"
-              >
-                {/* Box body */}
-                <rect
-                  x="40"
-                  y="80"
-                  width="120"
-                  height="90"
-                  fill="none"
-                  stroke="#c41e3a"
-                  strokeWidth="8"
-                  rx="8"
-                />
-                <rect
-                  x="40"
-                  y="80"
-                  width="120"
-                  height="30"
-                  fill="#c41e3a"
-                  rx="8"
-                />
-                {/* Ribbon */}
-                <rect x="95" y="30" width="10" height="140" fill="#d4af37" />
-                <rect x="40" y="75" width="120" height="10" fill="#d4af37" />
-                {/* Bow */}
-                <circle cx="70" cy="50" r="16" fill="#c41e3a" />
-                <circle cx="130" cy="50" r="16" fill="#c41e3a" />
-                <circle cx="100" cy="45" r="20" fill="#c41e3a" />
-                {/* Heart on bow */}
-                <path
-                  d="M100 35 Q105 30 110 35 Q110 40 100 48 Q90 40 90 35 Q95 30 100 35"
-                  fill="#d4af37"
-                />
-              </svg>
-              <p className="mt-2 text-sm text-burgundy font-medium">
-                {bankingInfo.bride.name}
-              </p>
-            </button>
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-10">
+        {/* Header Section */}
+        <div className="space-y-4">
+          <h2
+            className={`text-5xl md:text-8xl font-serif text-[#800020] tracking-widest transition-all duration-1000 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            THANK YOU
+          </h2>
+          <div
+            className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100" : "opacity-0"}`}
+          >
+            <p className="text-xl md:text-2xl font-light text-[#800020]/80 tracking-[0.2em] mb-2 uppercase">
+              {weddingDate}
+            </p>
+            <div className="flex justify-center items-center gap-4 mb-4">
+              <div className="h-[1px] w-8 bg-[#d4af37]/40" />
+              <span className="text-[#d4af37]">✨</span>
+              <div className="h-[1px] w-8 bg-[#d4af37]/40" />
+            </div>
+            <p className="text-lg md:text-xl text-gray-500 font-serif italic max-w-lg mx-auto leading-relaxed">
+              "{message}"
+            </p>
           </div>
-
-          <p className="text-center text-sm text-gray-500">
-            Nhấp vào hộp quà để xem thông tin chuyển khoản
-          </p>
         </div>
 
-        <p
-          className={`text-gray-600 font-light text-sm pt-12 border-t border-burgundy border-opacity-20 transition-opacity duration-700 ${
-            isVisible ? "opacity-100" : "opacity-0"
+        {/* Lucky Envelope Section */}
+        <div
+          className={`pt-6 transition-all duration-1000 delay-500 flex flex-col items-center ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
-          style={{ transitionDelay: "0.5s" }}
         >
-          © 2026 Made with Dainx
-        </p>
+          <p className="text-sm md:text-base text-gray-600 font-light mb-8 italic">
+            🧧 Mọi sự chúc phúc và quà tặng xin gửi về:
+          </p>
+
+          <div
+            className="relative inline-block group cursor-pointer"
+            onClick={() => setIsGiftModalOpen(true)}
+          >
+            {/* Floating Gold Coins */}
+            <div className="absolute -top-6 -left-8 animate-bounce text-2xl z-10">
+              🟡
+            </div>
+            <div className="absolute top-1/2 -right-10 animate-bounce delay-700 text-xl z-10">
+              🟡
+            </div>
+
+            {/* The Envelope */}
+            <button className="relative w-44 h-60 md:w-48 md:h-64 bg-[#c41e3a] rounded-2xl border-[3px] border-[#d4af37] shadow-2xl flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:scale-105 animate-wiggle animate-gold-glow">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#d4af37] border-4 border-[#f3cf7a] flex items-center justify-center shadow-inner">
+                <span className="text-[#c41e3a] text-5xl md:text-6xl font-serif font-bold">
+                  囍
+                </span>
+              </div>
+              <div className="mt-6 text-center px-4">
+                <p className="text-[#f3cf7a] font-serif text-base font-bold tracking-[0.2em]">
+                  HỘP MỪNG CƯỚI
+                </p>
+                <p className="text-white/60 text-[9px] mt-2 uppercase tracking-widest animate-pulse">
+                  Nhấn để mở
+                </p>
+              </div>
+              <div className="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/fish-scales.png')]" />
+            </button>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer
+          className={`pt-16 transition-opacity duration-1000 delay-700 ${isVisible ? "opacity-40" : "opacity-0"}`}
+        >
+          <div className="h-[1px] w-12 bg-[#800020] mx-auto mb-4" />
+          <p className="text-[10px] tracking-[0.4em] text-[#800020] uppercase font-bold">
+            © 2026 MADE WITH LOVE
+          </p>
+        </footer>
       </div>
 
-      {/* Banking Info Modal */}
-      {selectedBanking && (
+      {/* Dual Column Modal */}
+      {isGiftModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedBanking(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-4 backdrop-blur-md bg-black/60"
+          onClick={() => setIsGiftModalOpen(false)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all"
+            className="relative bg-[#800020] text-white rounded-[2rem] shadow-2xl max-w-xl w-full border border-[#d4af37]/40 p-6 md:p-10 transform transition-all animate-in zoom-in duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
-              onClick={() => setSelectedBanking(null)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+              onClick={() => setIsGiftModalOpen(false)}
+              className="absolute top-4 right-5 text-[#d4af37]/60 hover:text-[#d4af37] text-3xl transition-transform hover:rotate-90"
             >
               ×
             </button>
 
-            {/* Title */}
-            <h2 className="text-3xl font-serif text-burgundy text-center mb-6">
-              {selectedBanking.name}
-            </h2>
+            <h3 className="text-xl md:text-2xl font-serif text-[#d4af37] text-center mb-8 uppercase tracking-widest">
+              Hộp Mừng Cưới
+            </h3>
 
-            {/* Banking Info */}
-            <div className="space-y-4 mb-6">
-              {/* STK */}
-              <div className="bg-rose/30 rounded-lg p-4">
-                <p className="text-sm text-gray-600 font-medium">
-                  Số tài khoản
-                </p>
-                <p className="text-xl font-bold text-burgundy mt-1">
-                  {selectedBanking.stk}
-                </p>
+            <div className="flex flex-row gap-4 md:gap-8 justify-center items-stretch">
+              {/* Groom Column */}
+              <div className="flex-1 flex flex-col items-center bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+                <div className="text-center mb-4">
+                  <p className="text-[9px] uppercase tracking-widest text-[#d4af37]/70">
+                    Gửi đến
+                  </p>
+                  <h4 className="text-sm md:text-base font-serif font-bold text-white uppercase tracking-wide">
+                    {bankingInfo.groom.name}
+                  </h4>
+                </div>
+                <div className="w-full space-y-2 mb-4 text-[10px] md:text-xs border-y border-white/10 py-3">
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Số tài khoản
+                    </span>
+                    <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
+                      {bankingInfo.groom.stk}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Ngân hàng
+                    </span>
+                    <span className="truncate text-white/90">
+                      {bankingInfo.groom.bank}
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-auto bg-white p-1.5 rounded-xl shadow-lg shadow-black/40">
+                  <img
+                    src={bankingInfo.groom.qrCode}
+                    alt="QR Groom"
+                    className="w-20 h-20 md:w-32 md:h-32 object-contain"
+                  />
+                </div>
               </div>
 
-              {/* Bank */}
-              <div className="bg-rose/30 rounded-lg p-4">
-                <p className="text-sm text-gray-600 font-medium">Ngân hàng</p>
-                <p className="text-xl font-bold text-burgundy mt-1">
-                  {selectedBanking.bank}
-                </p>
-              </div>
-
-              {/* CTK */}
-              <div className="bg-rose/30 rounded-lg p-4">
-                <p className="text-sm text-gray-600 font-medium">
-                  Chủ tài khoản
-                </p>
-                <p className="text-xl font-bold text-burgundy mt-1">
-                  {selectedBanking.ctk}
-                </p>
+              {/* Bride Column */}
+              <div className="flex-1 flex flex-col items-center bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+                <div className="text-center mb-4">
+                  <p className="text-[9px] uppercase tracking-widest text-[#d4af37]/70">
+                    Gửi đến
+                  </p>
+                  <h4 className="text-sm md:text-base font-serif font-bold text-white uppercase tracking-wide">
+                    {bankingInfo.bride.name}
+                  </h4>
+                </div>
+                <div className="w-full space-y-2 mb-4 text-[10px] md:text-xs border-y border-white/10 py-3">
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Số tài khoản
+                    </span>
+                    <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
+                      {bankingInfo.bride.stk}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Ngân hàng
+                    </span>
+                    <span className="truncate text-white/90">
+                      {bankingInfo.bride.bank}
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-auto bg-white p-1.5 rounded-xl shadow-lg shadow-black/40">
+                  <img
+                    src={bankingInfo.bride.qrCode}
+                    alt="QR Bride"
+                    className="w-20 h-20 md:w-32 md:h-32 object-contain"
+                  />
+                </div>
               </div>
             </div>
 
-            {/* QR Code */}
-            {selectedBanking.qrCode && (
-              <div className="flex flex-col items-center mb-6">
-                <p className="text-sm text-gray-600 font-medium mb-3">
-                  Mã QR chuyển khoản
-                </p>
-                <img
-                  src={selectedBanking.qrCode}
-                  alt={`QR Code ${selectedBanking.name}`}
-                  className="w-40 h-40 rounded-lg shadow-lg bg-white p-2 border-4 border-rose"
-                />
-              </div>
-            )}
-
-            {/* Close button */}
             <button
-              onClick={() => setSelectedBanking(null)}
-              className="w-full bg-burgundy text-white py-3 rounded-lg font-medium hover:bg-burgundy/90 transition"
+              onClick={() => setIsGiftModalOpen(false)}
+              className="mt-10 w-full py-2.5 rounded-full border border-[#d4af37]/40 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#800020] transition-all font-bold uppercase text-[10px] tracking-widest shadow-xl"
             >
-              Đóng
+              Đóng cửa sổ
             </button>
           </div>
         </div>
