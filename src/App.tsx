@@ -182,7 +182,12 @@ function App() {
       {!isInvitationOpen && (
         <div className="invitation-overlay">
           <div className="invitation-card">
-            <div className="invite-seal" />
+            <div className="invite-seal">
+              <img
+                src="https://res.cloudinary.com/dvglujyon/image/upload/v1776916775/pngegg_1_zizqbj.png"
+                alt=""
+              />
+            </div>
             <p className="invite-name">Xuân Đại</p>
             <p className="invite-name">&amp;</p>
             <p className="invite-name">Hồng Nhung</p>
@@ -203,7 +208,7 @@ function App() {
       {isInvitationOpen && (
         <>
           <MusicToggle
-            audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776914886/Le%CC%82%CC%83_%C4%90u%CC%9Bo%CC%9B%CC%80ng_swexji.mp3"
+            audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776915359/leduong_pys4qs.mp3"
             shouldAutoPlay={isInvitationOpen}
           />
           {currentPage === 0 && <PetalFall />}
