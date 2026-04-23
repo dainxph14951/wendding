@@ -2,10 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 
 interface MusicToggleProps {
   audioUrl: string;
+  shouldAutoPlay?: boolean;
 }
 
-export const MusicToggle: React.FC<MusicToggleProps> = ({ audioUrl }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+export const MusicToggle: React.FC<MusicToggleProps> = ({
+  audioUrl,
+  shouldAutoPlay = false,
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleToggle = async () => {
@@ -29,36 +33,31 @@ export const MusicToggle: React.FC<MusicToggleProps> = ({ audioUrl }) => {
     }
   };
 
-  // Try to autoplay on mount; if browser blocks, state remains paused
+  // Try to autoplay when shouldAutoPlay is true
   useEffect(() => {
-    const attemptedMutedRef = { current: false } as { current: boolean };
+    if (!shouldAutoPlay || !audioRef.current) return;
 
     const tryAutoplay = async () => {
       if (!audioRef.current) return;
       try {
-        // Try unmuted autoplay first
         audioRef.current.muted = false;
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
           await playPromise;
           setIsPlaying(true);
-          return;
         }
       } catch (err) {
-        // continue to muted fallback
-      }
-
-      // Fallback: try to start muted (many browsers allow muted autoplay)
-      try {
-        audioRef.current.muted = true;
-        const playPromise = audioRef.current.play();
-        if (playPromise !== undefined) {
-          await playPromise;
-          setIsPlaying(true);
-          attemptedMutedRef.current = true;
+        // If unmuted autoplay fails, try muted
+        try {
+          audioRef.current.muted = true;
+          const playPromise = audioRef.current.play();
+          if (playPromise !== undefined) {
+            await playPromise;
+            setIsPlaying(true);
+          }
+        } catch (err2) {
+          setIsPlaying(false);
         }
-      } catch (err) {
-        setIsPlaying(false);
       }
     };
 
@@ -69,24 +68,26 @@ export const MusicToggle: React.FC<MusicToggleProps> = ({ audioUrl }) => {
         const playPromise = audioRef.current.play();
         if (playPromise !== undefined) {
           await playPromise;
+          setIsPlaying(true);
         }
-        setIsPlaying(true);
       } catch (err) {
         // ignore
       }
     };
 
-    tryAutoplay();
+    // Delay autoplay slightly to ensure browser readiness
+    const timer = setTimeout(tryAutoplay, 500);
     window.addEventListener("click", handleFirstInteraction, { once: true });
     window.addEventListener("touchstart", handleFirstInteraction, {
       once: true,
     });
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("click", handleFirstInteraction);
       window.removeEventListener("touchstart", handleFirstInteraction);
     };
-  }, []);
+  }, [shouldAutoPlay]);
 
   return (
     <>

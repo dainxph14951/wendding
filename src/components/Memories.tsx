@@ -46,7 +46,7 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
             </h1>
           </div>
           <div className="flex justify-center mt-2">
-            <span className="text-2xl">❤️</span>
+            {/* <span className="text-2xl">❤️</span> */}
           </div>
         </div>
 
@@ -183,7 +183,7 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
               />
               {currentIndex === idx && (
                 <div className="absolute top-1 right-1">
-                  <span className="text-red-600 text-lg">❤️</span>
+                  {/* <span className="text-red-600 text-lg">❤️</span> */}
                 </div>
               )}
             </button>

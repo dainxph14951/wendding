@@ -202,7 +202,10 @@ function App() {
 
       {isInvitationOpen && (
         <>
-          <MusicToggle audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776850188/em-dong-y_wptufn.mp3" />
+          <MusicToggle
+            audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776914886/Le%CC%82%CC%83_%C4%90u%CC%9Bo%CC%9B%CC%80ng_swexji.mp3"
+            shouldAutoPlay={isInvitationOpen}
+          />
           {currentPage === 0 && <PetalFall />}
           {currentPage === 0 && <Confetti />}
         </>
