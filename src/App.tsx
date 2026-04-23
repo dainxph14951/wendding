@@ -13,6 +13,7 @@ import "./index.css";
 function App() {
   const [currentPage, setCurrentPage] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [isInvitationOpen, setIsInvitationOpen] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
@@ -163,8 +164,8 @@ function App() {
 
   // Handle arrow keys
   useEffect(() => {
-    console.log("16:32 - 22/04");
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isInvitationOpen) return;
       if (e.key === "ArrowDown" && currentPage < sections.length - 1) {
         setCurrentPage(currentPage + 1);
       } else if (e.key === "ArrowUp" && currentPage > 0) {
@@ -174,18 +175,45 @@ function App() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentPage, sections.length]);
+  }, [currentPage, sections.length, isInvitationOpen]);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-white">
-      <MusicToggle audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776850188/em-dong-y_wptufn.mp3" />
-      {currentPage === 0 && <PetalFall />}
-      {currentPage === 0 && <Confetti />}
+    <div className="relative w-screen h-screen overflow-hidden app-shell">
+      {!isInvitationOpen && (
+        <div className="invitation-overlay">
+          <div className="invitation-card">
+            <div className="invite-seal" />
+            <p className="invite-name">Xuân Đại</p>
+            <p className="invite-name">&amp;</p>
+            <p className="invite-name">Hồng Nhung</p>
+            <div className="invite-divider" />
+            <p className="invite-date">10 tháng 5, 2026</p>
+            <p className="invite-label">Thân Mời</p>
+            <button
+              type="button"
+              className="invite-button"
+              onClick={() => setIsInvitationOpen(true)}
+            >
+              Mở thiệp
+            </button>
+          </div>
+        </div>
+      )}
+
+      {isInvitationOpen && (
+        <>
+          <MusicToggle audioUrl="https://res.cloudinary.com/dvglujyon/video/upload/v1776850188/em-dong-y_wptufn.mp3" />
+          {currentPage === 0 && <PetalFall />}
+          {currentPage === 0 && <Confetti />}
+        </>
+      )}
 
       {/* Main container */}
       <div
         ref={containerRef}
-        className="relative w-full h-screen overflow-y-scroll"
+        className={`relative w-full h-screen overflow-y-scroll transition-opacity duration-700 ${
+          isInvitationOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
         style={{
           scrollBehavior: "smooth",
           msOverflowStyle: "none", // Hide scrollbar for IE and Edge
@@ -199,7 +227,12 @@ function App() {
         `}</style>
         <div className="flex flex-col w-full h-full">
           {sections.map((section, idx) => (
-            <div key={idx} className="section w-full flex-shrink-0">
+            <div
+              key={idx}
+              className={`section w-full flex-shrink-0 section-fade ${
+                currentPage === idx ? "is-active" : ""
+              }`}
+            >
               {section}
             </div>
           ))}
