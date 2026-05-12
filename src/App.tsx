@@ -80,7 +80,7 @@ function App() {
     />,
     <EventDetails
       key="details"
-      weddingDate="2026-08-20"
+      weddingDate="2026-07-25"
       weddingTime="Ngày 17 tháng 07 ấm lịch 12:00 PM"
       venue="Trống Đông Palace"
       address="123 Main Street, Hanoi, Vietnam"
@@ -94,10 +94,10 @@ function App() {
     // <RSVP key="rsvp" />,
     <ThankYou
       key="thankyou"
-      weddingDate="20.08"
+      weddingDate="25.07"
       message="Hạnh phúc được bạn ở bên chúng mình"
       qrCodeGrom="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
-      qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
+      qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/v1778567878/z7817241470861_ed83c4396af8a2f385ad53f5d59b619a_m7mhca.jpg"
     />,
   ];
 

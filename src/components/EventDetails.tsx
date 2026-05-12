@@ -40,21 +40,21 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   const invitationCards = [
     {
       title: "TIỆC CƯỚI NHÀ TRAI",
-      schedule: "CHỦ NHẬT - 09:30",
-      date: "20 . 12 . 2026",
-      lunarDate: "Tức Ngày 16 tháng 10 năm Bính Ngọ",
+      schedule: "THỨ 7 - 10:00",
+      date: "25 . 07 . 2026",
+      lunarDate: "Tức Ngày 12 tháng 6 năm Bính Ngọ",
       locationTitle: "TẠI TƯ GIA NHÀ TRAI",
-      locationAddress: "Tân Mỹ - Tiên Phong - Bắc Ninh",
-      mapLink: "https://maps.google.com",
+      locationAddress: "Thôn Bắc - Đông Thái Ninh - Hưng Yên",
+      mapLink: "https://maps.app.goo.gl/psr5RsQbDKbWRFTJ9",
     },
     {
       title: "TIỆC CƯỚI NHÀ GÁI",
-      schedule: "THỨ BẢY - 18 : 00",
-      date: "19 . 12 . 2026",
-      lunarDate: "Tức Ngày 15 tháng 10 năm Bính Ngọ",
-      locationTitle: "TẠI NHÀ HÀNG SEN VÀNG",
-      locationAddress: "Phú Cát - Quốc Oai - Hà Nội",
-      mapLink: "https://maps.google.com",
+      schedule: "THỨ TƯ - 10 : 00",
+      date: "22 . 07 . 2026",
+      lunarDate: "Tức Ngày 09 tháng 06 năm Bính Ngọ",
+      locationTitle: "TẠI TƯ GIA NHÀ GÁI",
+      locationAddress: "TDP Liên Đình - Nghi Sơn - Thanh Hóa",
+      mapLink: "https://maps.app.goo.gl/2hLbqz5XWUXKwxkm6",
     },
   ];
 
@@ -75,7 +75,15 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const targetDate = new Date(weddingDate).getTime();
+      const weddingDateObj = new Date(weddingDate);
+      const targetDate = new Date(
+        weddingDateObj.getFullYear(),
+        weddingDateObj.getMonth(),
+        weddingDateObj.getDate(),
+        10,
+        0,
+        0,
+      ).getTime();
       const now = new Date().getTime();
       const diff = targetDate - now;
       if (diff > 0) {
@@ -84,6 +92,13 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((diff / 1000 / 60) % 60),
           seconds: Math.floor((diff / 1000) % 60),
+        });
+      } else {
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
         });
       }
     }, 1000);
@@ -185,20 +200,20 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             className={`mb-16 transition-all duration-1000 delay-200 flex flex-col items-center text-center ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <p className="text-5xl md:text-6xl font-serif font-bold text-[#800020] mb-6">
-              10:30
+              10:00
             </p>
 
             <div className="flex items-center gap-4 md:gap-8 mb-4">
               <span className="text-gray-600 font-serif text-lg md:text-xl uppercase tracking-widest">
-                Chủ Nhật
+                Thứ 7
               </span>
               <div className="h-8 w-[1px] bg-gray-300" />
               <span className="text-5xl md:text-6xl font-serif font-bold text-[#800020]">
-                01
+                25
               </span>
               <div className="h-8 w-[1px] bg-gray-300" />
               <span className="text-gray-600 font-serif text-lg md:text-xl uppercase tracking-widest">
-                Tháng 02
+                Tháng 07
               </span>
             </div>
 
@@ -207,7 +222,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             </p>
 
             <p className="text-sm md:text-base text-gray-500 italic mb-8">
-              (Tức ngày 14/12 năm Ất Tỵ)
+              (Tức ngày 12/06 năm Bính ngọ)
             </p>
 
             {/* Khối giờ đón khách & khai tiệc */}
@@ -217,7 +232,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                   Đón khách
                 </p>
                 <p className="text-2xl font-serif font-bold text-[#800020]">
-                  17:00
+                  09:00
                 </p>
               </div>
               <div>
@@ -225,7 +240,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                   Khai tiệc
                 </p>
                 <p className="text-2xl font-serif font-bold text-[#800020]">
-                  10:30
+                  10:00
                 </p>
               </div>
             </div>
@@ -233,7 +248,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             {/* Bảng Lịch Tháng 2 */}
             <div className="relative bg-white/50 backdrop-blur-sm border border-[#d4af37]/30 rounded-2xl p-6 shadow-sm w-full max-w-sm">
               <div className="text-[#800020] font-serif font-bold mb-4 border-b border-[#800020]/10 pb-2">
-                Tháng 2 / 2026
+                Tháng 7 / 2026
               </div>
 
               {/* Các thứ trong tuần */}
@@ -249,29 +264,46 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
               {/* Các ngày trong tháng */}
               <div className="grid grid-cols-7 gap-y-4 text-sm font-serif text-gray-700">
-                {/* Hàng 1: Tháng 2/2026 bắt đầu từ CN nên để trống 6 ô đầu */}
-                {[...Array(6)].map((_, i) => (
-                  <span key={i}></span>
+                {/* Ngày 29, 30 tháng 6 */}
+                {[29, 30].map((day) => (
+                  <span key={`prev-${day}`} className="text-gray-300">
+                    {day}
+                  </span>
                 ))}
 
-                {/* Ngày 1 có hình trái tim */}
-                <div className="relative flex items-center justify-center">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="w-8 h-8 text-[#800020] fill-current"
+                {/* Render tất cả ngày 1-31 tháng 7, ngày 25 có hình trái tim */}
+                {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => {
+                  const isWeddingDay = day === 25;
+                  return isWeddingDay ? (
+                    <div
+                      key={day}
+                      className="relative flex items-center justify-center"
                     >
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
-                  </div>
-                  <span className="relative z-10 text-white text-[10px] font-bold mt-[-2px]">
-                    1
-                  </span>
-                </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="w-8 h-8 text-[#800020] fill-current"
+                        >
+                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                      </div>
+                      <span className="relative z-10 text-white text-[10px] font-bold mt-[-2px]">
+                        {day}
+                      </span>
+                    </div>
+                  ) : (
+                    <span
+                      key={day}
+                      className="flex items-center justify-center"
+                    >
+                      {day}
+                    </span>
+                  );
+                })}
 
-                {/* Các ngày còn lại từ 2 đến 28 */}
-                {Array.from({ length: 27 }, (_, i) => i + 2).map((day) => (
-                  <span key={day} className="flex items-center justify-center">
+                {/* Ngày 1, 2 tháng 8 */}
+                {[1, 2].map((day) => (
+                  <span key={`next-${day}`} className="text-gray-300">
                     {day}
                   </span>
                 ))}

@@ -35,8 +35,8 @@ export const ThankYou: React.FC<ThankYouProps> = ({
     },
     bride: {
       name: "CÔ DÂU",
-      stk: "9386300093",
-      bank: "Vietcombank",
+      stk: "0395161551",
+      bank: "MB Bank",
       ctk: "Nguyễn Hồng Nhung",
       qrCode: qrCodeBride,
     },
@@ -227,6 +227,14 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Chủ tài khoản
+                    </span>
+                    <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
+                      {bankingInfo.groom.ctk}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Ngân hàng
                     </span>
                     <span className="truncate text-white/90">
@@ -260,6 +268,14 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                     </span>
                     <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
                       {bankingInfo.bride.stk}
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                      Chủ tài khoản
+                    </span>
+                    <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
+                      {bankingInfo.bride.ctk}
                     </span>
                   </div>
                   <div className="flex flex-col">
