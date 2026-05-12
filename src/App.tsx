@@ -238,7 +238,7 @@ function App() {
 
             {/* Thông tin ngày tháng */}
             <p className="invite-date text-[#800020]/70 font-serif italic text-sm md:text-base mb-1">
-              10 tháng 5, 2026
+              25 tháng 7, 2026
             </p>
             <p className="invite-label text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-8">
               Thân Mời
