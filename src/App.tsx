@@ -34,7 +34,7 @@ function App() {
     />,
     <WeddingDay
       key="wedding"
-      mainText="WE GET MARRIED"
+      mainText="We Get Married"
       description="Giữa muôn vạn vì sao rực rỡ, em chính là định mệnh hiển nhiên nhất của đời anh."
       shortStories={[
         {

@@ -22,6 +22,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
+.font-script {
+  font-family: "Dancing Script", cursive;
+}
+
 /* Entry animations */
 @keyframes fadeInUp {
   from {

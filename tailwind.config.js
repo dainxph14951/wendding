@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         serif: ["Playfair Display", "serif"],
         sans: ["Poppins", "sans-serif"],
+        script: ['"Dancing Script"', "cursive"],
       },
     },
   },

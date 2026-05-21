@@ -21,6 +21,185 @@ interface TimeLeft {
   seconds: number;
 }
 
+interface WeddingTimelineItem {
+  time: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const TimelineIconSvg = ({ children }: { children: React.ReactNode }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className="h-7 w-7"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
+    {children}
+  </svg>
+);
+
+/** Đón tiếp — ly champagne cổ điển */
+const TimelineGuestIcon = () => (
+  <TimelineIconSvg>
+    <ellipse
+      cx="8.5"
+      cy="4"
+      rx="2.2"
+      ry="0.75"
+      fill="currentColor"
+      stroke="none"
+    />
+    <path
+      d="M6.5 4v6.2c0 1.6 1 2.9 2.5 3.2V17H5.5v1.5h4"
+      fill="currentColor"
+      fillOpacity="0.1"
+    />
+    <path d="M6.5 4v6.2c0 1.6 1 2.9 2.5 3.2V17H5.5v1.5h4" />
+    <ellipse
+      cx="15.5"
+      cy="4"
+      rx="2.2"
+      ry="0.75"
+      fill="currentColor"
+      stroke="none"
+    />
+    <path
+      d="M17.5 4v6.2c0 1.6-1 2.9-2.5 3.2V17H19v1.5h-4"
+      fill="currentColor"
+      fillOpacity="0.1"
+    />
+    <path d="M17.5 4v6.2c0 1.6-1 2.9-2.5 3.2V17H19v1.5h-4" />
+    <path d="M10 11.8c.8.5 1.7.8 2.5.8s1.7-.3 2.5-.8" />
+    <path d="M12 3.2v1.2" strokeWidth="1" />
+    <circle cx="12" cy="2.6" r="0.5" fill="currentColor" stroke="none" />
+  </TimelineIconSvg>
+);
+
+/** Khai mạc — bánh cưới ba tầng */
+const TimelineFeastIcon = () => (
+  <TimelineIconSvg>
+    <path d="M6 20h12M8 20v-2.5M16 20v-2.5" strokeWidth="1.1" />
+    <path
+      d="M5 17.5h14a1 1 0 0 0 1-.9l-1.2-4.5H5.2L4 16.6a1 1 0 0 0 1 1z"
+      fill="currentColor"
+      fillOpacity="0.1"
+    />
+    <path d="M5 17.5h14a1 1 0 0 0 1-.9l-1.2-4.5H5.2L4 16.6a1 1 0 0 0 1 1z" />
+    <path d="M7.5 13h9l.8-3H6.7l.8 3z" fill="currentColor" fillOpacity="0.14" />
+    <path d="M7.5 13h9l.8-3H6.7l.8 3z" />
+    <path
+      d="M9 9.5h6l.6-2.2H8.4l.6 2.2z"
+      fill="currentColor"
+      fillOpacity="0.18"
+    />
+    <path d="M9 9.5h6l.6-2.2H8.4l.6 2.2z" />
+    <path
+      d="M12 5.5c-.8 0-1.4.5-1.4 1.1S11.2 7.7 12 7.7s1.4-.5 1.4-1.1S12.8 5.5 12 5.5z"
+      fill="currentColor"
+      stroke="none"
+    />
+    <path d="M12 7.7V9.5" strokeWidth="1" />
+    <circle cx="10" cy="15.2" r="0.35" fill="currentColor" stroke="none" />
+    <circle cx="14" cy="15.2" r="0.35" fill="currentColor" stroke="none" />
+    <circle cx="12" cy="11.2" r="0.35" fill="currentColor" stroke="none" />
+  </TimelineIconSvg>
+);
+
+/** Thành hôn — nhẫn đôi & trái tim */
+const TimelineRingsIcon = () => (
+  <TimelineIconSvg>
+    <path
+      d="M12 4.2c-.3-.9-1.4-1.5-2.4-1.1-.9.4-1.3 1.5-.8 2.4.3.6 1 1 1.7 1l.1.1c.2-.5.6-.9 1.1-1.1.9-.4 2-.2 2.4.7.3.7 0 1.5-.7 1.9"
+      fill="currentColor"
+      fillOpacity="0.2"
+      stroke="none"
+    />
+    <path d="M12 4.2c-.3-.9-1.4-1.5-2.4-1.1-.9.4-1.3 1.5-.8 2.4.3.6 1 1 1.7 1l.1.1c.2-.5.6-.9 1.1-1.1.9-.4 2-.2 2.4.7.3.7 0 1.5-.7 1.9" />
+    <circle cx="8.5" cy="15" r="3.2" />
+    <circle cx="15.5" cy="15" r="3.2" />
+    <path d="M11.7 15.2c.6.5 1.5.5 2.1 0" />
+    <circle
+      cx="8.5"
+      cy="15"
+      r="1.1"
+      fill="currentColor"
+      fillOpacity="0.25"
+      stroke="none"
+    />
+    <circle
+      cx="15.5"
+      cy="15"
+      r="1.1"
+      fill="currentColor"
+      fillOpacity="0.25"
+      stroke="none"
+    />
+  </TimelineIconSvg>
+);
+
+/** Lưu niệm — ảnh polaroid & trái tim */
+const TimelineCameraIcon = () => (
+  <TimelineIconSvg>
+    <rect
+      x="5"
+      y="4"
+      width="11"
+      height="14"
+      rx="1"
+      fill="currentColor"
+      fillOpacity="0.08"
+    />
+    <rect x="5" y="4" width="11" height="14" rx="1" />
+    <rect
+      x="6.5"
+      y="5.5"
+      width="8"
+      height="7.5"
+      rx="0.5"
+      fill="currentColor"
+      fillOpacity="0.12"
+      stroke="none"
+    />
+    <path
+      d="M10 11.2C8.5 9.8 7.5 8.8 7.5 7.8c0-.9.7-1.6 1.6-1.6.7 0 1.3.4 1.6 1 .3-.6.9-1 1.6-1 .9 0 1.6.7 1.6 1.6 0 1-1 2-2.5 3.4L10 11.2z"
+      fill="currentColor"
+      fillOpacity="0.35"
+      stroke="none"
+    />
+    <path d="M10 11.2C8.5 9.8 7.5 8.8 7.5 7.8c0-.9.7-1.6 1.6-1.6.7 0 1.3.4 1.6 1 .3-.6.9-1 1.6-1 .9 0 1.6.7 1.6 1.6 0 1-1 2-2.5 3.4L10 11.2z" />
+    <path d="M6.5 15.5h8" strokeWidth="1" />
+    <path
+      d="M17.5 9.5h2.5v6a1 1 0 0 1-1 1h-1.5"
+      fill="currentColor"
+      fillOpacity="0.1"
+    />
+    <path d="M17.5 9.5h2.5v6a1 1 0 0 1-1 1h-1.5" />
+    <circle cx="18.8" cy="12.5" r="1.4" />
+    <path
+      d="M20 8.5l-1-.5h-1.2l-.6 1h1.8l1-.5z"
+      fill="currentColor"
+      fillOpacity="0.15"
+      stroke="none"
+    />
+    <path d="M20 8.5l-1-.5h-1.2l-.6 1h1.8l1-.5z" />
+  </TimelineIconSvg>
+);
+
+const weddingTimeline: WeddingTimelineItem[] = [
+  { time: "07:00", label: "Đón tiếp quý khách", icon: <TimelineGuestIcon /> },
+  { time: "08:00", label: "Khai mạc tiệc cưới", icon: <TimelineFeastIcon /> },
+  { time: "09:00", label: "Lễ thành hôn", icon: <TimelineRingsIcon /> },
+  {
+    time: "09:30",
+    label: "Chụp hình lưu niệm với Cô dâu & Chú rể",
+    icon: <TimelineCameraIcon />,
+  },
+];
+
 export const EventDetails: React.FC<EventDetailsProps> = ({
   weddingDate,
   groomPhone,
@@ -39,7 +218,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
   const invitationCards = [
     {
-      title: "TIỆC CƯỚI NHÀ TRAI",
+      title: "Tiệc cưới nhà trai",
       schedule: "THỨ 7 - 10:00",
       date: "25 . 07 . 2026",
       lunarDate: "Tức Ngày 12 tháng 6 năm Bính Ngọ",
@@ -48,7 +227,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
       mapLink: "https://maps.app.goo.gl/psr5RsQbDKbWRFTJ9",
     },
     {
-      title: "TIỆC CƯỚI NHÀ GÁI",
+      title: "Tiệc cưới nhà gái",
       schedule: "THỨ TƯ - 10 : 00",
       date: "22 . 07 . 2026",
       lunarDate: "Tức Ngày 09 tháng 06 năm Bính Ngọ",
@@ -120,11 +299,11 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <div className="text-center mb-16">
-            <p className="text-[#d4af37] text-xs tracking-[0.5em] mb-4 uppercase">
+            <p className="font-script text-2xl md:text-3xl text-[#d4af37] mb-2">
               Save the date
             </p>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#800020]">
-              WEDDING INVITATION
+            <h2 className="font-script text-5xl md:text-6xl text-[#800020] leading-tight">
+              Wedding Invitation
             </h2>
             <div className="mt-4 flex justify-center items-center gap-4">
               <div className="h-[1px] w-12 bg-[#d4af37]/40" />
@@ -144,7 +323,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                 <div className="absolute inset-3 border border-[#d4af37]/20 rounded-[1.6rem] pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
-                  <h3 className="text-xl font-serif font-bold text-[#f8f4e1] uppercase tracking-wider">
+                  <h3 className="font-script text-2xl md:text-3xl text-[#f8f4e1] leading-snug">
                     {card.title}
                   </h3>
                   <p className="text-[10px] tracking-[0.3em] text-[#d4af37] uppercase">
@@ -161,7 +340,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                   </div>
 
                   <div className="space-y-1">
-                    <p className="text-lg font-serif text-[#f8f4e1]">
+                    <p className=" text-xl md:text-2xl text-[#f8f4e1]">
                       {card.locationTitle}
                     </p>
                     <p className="text-xs font-light text-white/70 leading-relaxed">
@@ -187,11 +366,11 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-serif text-[#800020]">
-              COUNTDOWN TIME
+            <h2 className="font-script text-5xl md:text-6xl text-[#800020] leading-tight">
+              Countdown Time
             </h2>
-            <p className="text-[#d4af37] text-[10px] tracking-[0.4em] mt-2 uppercase">
-              Until we say I DO
+            <p className="font-script text-xl md:text-2xl text-[#d4af37] mt-1">
+              Until we say I do
             </p>
           </div>
 
@@ -228,7 +407,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
             {/* Khối giờ đón khách & khai tiệc */}
             <div className="flex gap-12 md:gap-20 mb-12">
               <div>
-                <p className="text-[10px] tracking-[0.2em] text-gray-400 uppercase mb-2">
+                <p className="font-script text-lg text-gray-500 mb-2">
                   Đón khách
                 </p>
                 <p className="text-2xl font-serif font-bold text-[#800020]">
@@ -236,7 +415,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                 </p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.2em] text-gray-400 uppercase mb-2">
+                <p className="font-script text-lg text-gray-500 mb-2">
                   Khai tiệc
                 </p>
                 <p className="text-2xl font-serif font-bold text-[#800020]">
@@ -247,7 +426,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
             {/* Bảng Lịch Tháng 2 */}
             <div className="relative bg-white/50 backdrop-blur-sm border border-[#d4af37]/30 rounded-2xl p-6 shadow-sm w-full max-w-sm">
-              <div className="text-[#800020] font-serif font-bold mb-4 border-b border-[#800020]/10 pb-2">
+              <div className="font-script text-2xl text-[#800020] mb-4 border-b border-[#800020]/10 pb-2">
                 Tháng 7 / 2026
               </div>
 
@@ -333,6 +512,43 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               </div>
             ))}
           </div>
+
+          {/* Timeline lịch trình tiệc */}
+          <div
+            className={`mt-16 flex flex-col items-center transition-all duration-1000 delay-150 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          >
+            <p className="text-center font-script text-3xl md:text-4xl text-[#800020] mb-8">
+              Lịch trình trong ngày
+            </p>
+            <div className="relative mx-auto w-full max-w-sm">
+              {weddingTimeline.map((item, index) => (
+                <div
+                  key={item.time}
+                  className={`relative flex items-start gap-5 ${index < weddingTimeline.length - 1 ? "pb-10" : ""}`}
+                >
+                  <div className="relative flex w-14 shrink-0 flex-col items-center">
+                    {index < weddingTimeline.length - 1 && (
+                      <div
+                        className="absolute left-1/2 top-14 bottom-0 w-[1px] -translate-x-1/2 bg-gradient-to-b from-[#d4af37]/60 to-[#d4af37]/15"
+                        aria-hidden
+                      />
+                    )}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-[#d4af37]/50 bg-gradient-to-br from-white via-[#fffdf8] to-[#f8f0e3] text-[#800020] shadow-md ring-1 ring-[#d4af37]/15">
+                      {item.icon}
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1 pt-3 text-left">
+                    <p className="font-serif text-xl font-bold text-[#800020] tabular-nums">
+                      {item.time}
+                    </p>
+                    <p className="font-serif text-base text-gray-700 leading-snug">
+                      {item.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* 3. SECTION: CALLING CARDS (Contact) */}
@@ -345,9 +561,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <div className="absolute -top-3 -left-3 text-2xl opacity-20">
                 🕊️
               </div>
-              <p className="text-[10px] tracking-[0.2em] text-[#d4af37] uppercase mb-1">
-                Groom
-              </p>
+              <p className="font-serif text-xl text-[#d4af37] mb-1">Groom</p>
               <h4 className="text-xl font-serif text-[#800020] mb-4">
                 {groomName}
               </h4>
@@ -367,9 +581,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <div className="absolute -top-3 -right-3 text-2xl opacity-20 rotate-12">
                 🌸
               </div>
-              <p className="text-[10px] tracking-[0.2em] text-[#d4af37] uppercase mb-1">
-                Bride
-              </p>
+              <p className="font-serif text-xl text-[#d4af37] mb-1">Bride</p>
               <h4 className="text-xl font-serif text-[#800020] mb-4">
                 {brideName}
               </h4>

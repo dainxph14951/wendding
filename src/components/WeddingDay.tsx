@@ -97,7 +97,7 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
               >
                 SAVOUR THE MOMENT
               </p>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#800020] leading-[1.1]">
+              <h2 className="font-script text-4xl md:text-5xl lg:text-6xl text-[#800020] leading-[1.1]">
                 {renderAnimatedLetters(mainText)}
               </h2>
             </header>
