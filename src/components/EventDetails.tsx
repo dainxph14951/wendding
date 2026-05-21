@@ -387,8 +387,8 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                 Thứ 7
               </span>
               <div className="h-8 w-[1px] bg-gray-300" />
-              <span className="text-5xl md:text-6xl font-serif font-bold text-[#800020]">
-                25
+              <span className="text-gray-600 font-serif text-lg md:text-xl uppercase tracking-widest">
+                Ngày 25
               </span>
               <div className="h-8 w-[1px] bg-gray-300" />
               <span className="text-gray-600 font-serif text-lg md:text-xl uppercase tracking-widest">
