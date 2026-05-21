@@ -93,7 +93,7 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
           <div className="w-full md:w-1/2 space-y-8">
             <header className="space-y-4">
               <p
-                className={`text-[#d4af37] tracking-[0.4em] text-sm font-light transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+                className={`font-script text-[#d4af37] tracking-[0.4em] text-sm font-light transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
               >
                 SAVOUR THE MOMENT
               </p>
@@ -106,7 +106,7 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
               className={`relative transition-all duration-1000 delay-[1000ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
               <div className="absolute -left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#d4af37] to-transparent" />
-              <p className="text-gray-600 font-light text-lg italic leading-relaxed">
+              <p className="font-script text-gray-600 font-light text-lg italic leading-relaxed">
                 {description}
               </p>
             </div>
@@ -122,7 +122,7 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
                   >
                     <div className="flex items-center gap-4 mb-2">
                       <span className="w-8 h-[1px] bg-[#d4af37]" />
-                      <h3 className="text-[#800020] font-serif text-xl tracking-wide">
+                      <h3 className="font-script text-[#800020] text-xl tracking-wide">
                         {story.title}
                       </h3>
                     </div>

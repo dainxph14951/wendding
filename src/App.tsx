@@ -218,13 +218,13 @@ function App() {
 
             {/* Tên cặp đôi */}
             <div className="space-y-1 mb-6">
-              <p className="invite-name text-2xl md:text-3xl font-serif text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
+              <p className="font-script invite-name text-2xl md:text-3xl text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
                 Xuân Đại
               </p>
               <p className="invite-name text-xl font-serif text-[#d4af37] italic font-light">
                 &amp;
               </p>
-              <p className="invite-name text-2xl md:text-3xl font-serif text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
+              <p className="font-script invite-name text-2xl md:text-3xl text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
                 Hồng Nhung
               </p>
             </div>
@@ -237,10 +237,10 @@ function App() {
             </div>
 
             {/* Thông tin ngày tháng */}
-            <p className="invite-date text-[#800020]/70 font-serif italic text-sm md:text-base mb-1">
+            <p className="invite-date text-[#800020]/70 font-script italic text-sm md:text-base mb-1">
               25 tháng 7, 2026
             </p>
-            <p className="invite-label text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-8">
+            <p className="font-script invite-label text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-8">
               Thân Mời
             </p>
 
@@ -251,7 +251,7 @@ function App() {
               onClick={() => setIsInvitationOpen(true)}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span className="relative z-10 text-xs md:text-sm font-bold">
+              <span className="relative z-10 text-xs md:text-sm font-bold font-script">
                 MỞ THIỆP
               </span>
             </button>

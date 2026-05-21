@@ -103,7 +103,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
               </h2>
             </div>
             <p
-              className={`mt-4 text-sm md:text-base font-light text-black/60 max-w-xs transition-all duration-1000 delay-[2s] ${isOpen ? "opacity-100" : "opacity-0"}`}
+              className={`font-script mt-4 text-sm md:text-base font-light text-black/60 max-w-xs transition-all duration-1000 delay-[2s] ${isOpen ? "opacity-100" : "opacity-0"}`}
             >
               Chúng mình kết hôn rồi! Hẹn bạn đến chung vui cùng chúng mình
               trong ngày trọng đại.
@@ -130,7 +130,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
             >
               {/* Tên Chú Rể */}
               <div className="flex items-baseline gap-4 border-b border-black/10 pb-2">
-                <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
+                <span className="font-script text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
                   Groom
                 </span>
                 <p className="text-2xl md:text-4xl font-serif text-black">
@@ -140,7 +140,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
 
               {/* Tên Cô Dâu */}
               <div className="flex items-baseline gap-4">
-                <span className="text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
+                <span className="font-script text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
                   Bride
                 </span>
                 <p className="text-2xl md:text-4xl font-serif text-black">

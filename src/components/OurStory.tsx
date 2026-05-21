@@ -62,10 +62,10 @@ export const OurStory: React.FC<OurStoryProps> = ({
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <p className="text-[#d4af37] text-sm tracking-[0.4em] mb-4 uppercase">
+          <p className="font-script text-[#d4af37] text-sm tracking-[0.4em] mb-4 uppercase">
             The Journey of Love
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#800020] relative inline-block">
+          <h2 className="text-4xl md:text-5xl font-script text-[#800020] relative inline-block">
             {title}
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#d4af37]" />
           </h2>
@@ -88,7 +88,7 @@ export const OurStory: React.FC<OurStoryProps> = ({
                 <span className="absolute top-2 left-2 text-4xl text-[#d4af37]/20 font-serif">
                   “
                 </span>
-                <p className="text-gray-600 font-light text-lg relative z-10 leading-relaxed">
+                <p className="text-gray-600 font-light text-lg relative z-10 leading-relaxed font-script">
                   {quote}
                 </p>
               </div>

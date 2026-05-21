@@ -71,10 +71,10 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <p className="text-[#d4af37] text-sm tracking-[0.4em] mb-4 uppercase">
+          <p className="font-script text-[#d4af37] text-sm tracking-[0.4em] mb-4 uppercase">
             Visual Memories
           </p>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#800020] relative inline-block">
+          <h2 className="font-script text-4xl md:text-5xl text-[#800020] relative inline-block">
             ALBUM OF LOVE
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#d4af37]" />
           </h2>
