@@ -129,13 +129,17 @@ const TimelineCameraIcon = () => (
 
 // --- Data ---
 const engagementTimeline: WeddingTimelineItem[] = [
-  { time: "08:30", label: "Nhà trai xuất phát", icon: <TimelineGuestIcon /> },
+  {
+    time: "08:30",
+    label: "Lễ trao lễ vật & Dạm hỏi",
+    icon: <TimelineGuestIcon />,
+  },
   {
     time: "09:00",
-    label: "Lễ trao lễ vật & Dạm hỏi",
+    label: "Tiệc trà thân mật",
     icon: <TimelineRingsIcon />,
   },
-  { time: "10:00", label: "Tiệc trà thân mật", icon: <TimelineFeastIcon /> },
+  { time: "10:00", label: "Khai tiệc", icon: <TimelineFeastIcon /> },
   {
     time: "11:00",
     label: "Chụp hình cùng gia đình",
@@ -146,9 +150,9 @@ const engagementTimeline: WeddingTimelineItem[] = [
 const weddingTimelineData: WeddingTimelineItem[] = [
   { time: "09:30", label: "Đón tiếp khách mời", icon: <TimelineGuestIcon /> },
   { time: "10:00", label: "Hôn lễ chính thức", icon: <TimelineRingsIcon /> },
-  { time: "10:30", label: "Khai tiệc mừng", icon: <TimelineFeastIcon /> },
+  { time: "10:10", label: "Khai tiệc mừng", icon: <TimelineFeastIcon /> },
   {
-    time: "11:30",
+    time: "11:00",
     label: "Cảm ơn & Chụp hình lưu niệm",
     icon: <TimelineCameraIcon />,
   },
@@ -253,15 +257,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
   const invitationCards = [
     {
-      title: "Tiệc cưới nhà trai",
-      schedule: "THỨ 7 - 10:00",
-      date: "25 . 07 . 2026",
-      lunarDate: "Tức Ngày 12 tháng 6 năm Bính Ngọ",
-      locationTitle: "TẠI TƯ GIA NHÀ TRAI",
-      locationAddress: "Thôn Bắc - Đông Thái Ninh - Hưng Yên",
-      mapLink: "https://maps.app.goo.gl/psr5RsQbDKbWRFTJ9",
-    },
-    {
       title: "Tiệc cưới nhà gái",
       schedule: "THỨ TƯ - 10 : 00",
       date: "22 . 07 . 2026",
@@ -269,6 +264,15 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
       locationTitle: "TẠI TƯ GIA NHÀ GÁI",
       locationAddress: "TDP Liên Đình - Nghi Sơn - Thanh Hóa",
       mapLink: "https://maps.app.goo.gl/2hLbqz5XWUXKwxkm6",
+    },
+    {
+      title: "Tiệc cưới nhà trai",
+      schedule: "THỨ 7 - 10:00",
+      date: "25 . 07 . 2026",
+      lunarDate: "Tức Ngày 12 tháng 6 năm Bính Ngọ",
+      locationTitle: "TẠI TƯ GIA NHÀ TRAI",
+      locationAddress: "Thôn Bắc - Đông Thái Ninh - Hưng Yên",
+      mapLink: "https://maps.app.goo.gl/psr5RsQbDKbWRFTJ9",
     },
   ];
 
@@ -525,7 +529,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <p className="font-['Cormorant_Garamond'] italic text-2xl text-[#d4af37] mb-1">
                 Groom
               </p>
-              <h4 className="font-serif text-2xl text-[#800020] mb-6">
+              <h4 className="font-script text-2xl text-[#800020] mb-6">
                 {groomName}
               </h4>
               <a
@@ -539,7 +543,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <p className="font-['Cormorant_Garamond'] italic text-2xl text-[#d4af37] mb-1">
                 Bride
               </p>
-              <h4 className="font-serif text-2xl text-[#800020] mb-6">
+              <h4 className="font-script text-2xl text-[#800020] mb-6">
                 {brideName}
               </h4>
               <a

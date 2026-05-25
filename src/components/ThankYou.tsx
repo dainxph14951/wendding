@@ -106,7 +106,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
         {/* Header Section */}
         <div className="space-y-4">
           <h2
-            className={`text-5xl md:text-8xl font-serif text-[#800020] tracking-widest transition-all duration-1000 ${
+            className={`font-script text-5xl md:text-8xl text-[#800020] tracking-widest transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -125,7 +125,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
               <span className="text-[#d4af37]">✨</span>
               <div className="h-[1px] w-8 bg-[#d4af37]/40" />
             </div>
-            <p className="text-lg md:text-xl text-gray-500 font-serif italic max-w-lg mx-auto leading-relaxed">
+            <p className="font-script text-lg md:text-xl text-gray-500 italic max-w-lg mx-auto leading-relaxed">
               "{message}"
             </p>
           </div>
@@ -137,7 +137,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-sm md:text-base text-gray-600 font-light mb-8 italic">
+          <p className="font-script text-sm md:text-base text-gray-600 font-light mb-8 italic">
             🧧 Mọi sự chúc phúc và quà tặng xin gửi về:
           </p>
 
@@ -156,15 +156,15 @@ export const ThankYou: React.FC<ThankYouProps> = ({
             {/* The Envelope */}
             <button className="relative w-44 h-60 md:w-48 md:h-64 bg-[#c41e3a] rounded-2xl border-[3px] border-[#d4af37] shadow-2xl flex flex-col items-center justify-center overflow-hidden transition-all duration-500 group-hover:scale-105 animate-wiggle animate-gold-glow">
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#d4af37] border-4 border-[#f3cf7a] flex items-center justify-center shadow-inner">
-                <span className="text-[#c41e3a] text-5xl md:text-6xl font-serif font-bold">
+                <span className="text-[#c41e3a] text-5xl md:text-6xl font-script font-bold">
                   囍
                 </span>
               </div>
               <div className="mt-6 text-center px-4">
-                <p className="text-[#f3cf7a] font-serif text-base font-bold tracking-[0.2em]">
+                <p className="font-script text-[#f3cf7a] text-base font-bold tracking-[0.2em]">
                   HỘP MỪNG CƯỚI
                 </p>
-                <p className="text-white/60 text-[9px] mt-2 uppercase tracking-widest animate-pulse">
+                <p className="font-script text-white/60 text-[9px] mt-2 uppercase tracking-widest animate-pulse">
                   Nhấn để mở
                 </p>
               </div>
@@ -178,7 +178,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
           className={`pt-16 transition-opacity duration-1000 delay-700 ${isVisible ? "opacity-40" : "opacity-0"}`}
         >
           <div className="h-[1px] w-12 bg-[#800020] mx-auto mb-4" />
-          <p className="text-[10px] tracking-[0.4em] text-[#800020] uppercase font-bold">
+          <p className="font-script text-[10px] tracking-[0.4em] text-[#800020] uppercase font-bold">
             © 2026 MADE WITH LOVE
           </p>
         </footer>
@@ -201,7 +201,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
               ×
             </button>
 
-            <h3 className="text-xl md:text-2xl font-serif text-[#d4af37] text-center mb-8 uppercase tracking-widest">
+            <h3 className="font-script text-xl md:text-2xl text-[#d4af37] text-center mb-8 uppercase tracking-widest">
               Hộp Mừng Cưới
             </h3>
 
@@ -212,13 +212,13 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                   <p className="text-[9px] uppercase tracking-widest text-[#d4af37]/70">
                     Gửi đến
                   </p>
-                  <h4 className="text-sm md:text-base font-serif font-bold text-white uppercase tracking-wide">
+                  <h4 className="text-sm md:text-base font-script font-bold text-white uppercase tracking-wide">
                     {bankingInfo.groom.name}
                   </h4>
                 </div>
                 <div className="w-full space-y-2 mb-4 text-[10px] md:text-xs border-y border-white/10 py-3">
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Số tài khoản
                     </span>
                     <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
@@ -226,7 +226,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Chủ tài khoản
                     </span>
                     <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
@@ -234,7 +234,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Ngân hàng
                     </span>
                     <span className="truncate text-white/90">
@@ -257,13 +257,13 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                   <p className="text-[9px] uppercase tracking-widest text-[#d4af37]/70">
                     Gửi đến
                   </p>
-                  <h4 className="text-sm md:text-base font-serif font-bold text-white uppercase tracking-wide">
+                  <h4 className="text-sm md:text-base font-script font-bold text-white uppercase tracking-wide">
                     {bankingInfo.bride.name}
                   </h4>
                 </div>
                 <div className="w-full space-y-2 mb-4 text-[10px] md:text-xs border-y border-white/10 py-3">
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Số tài khoản
                     </span>
                     <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
@@ -271,7 +271,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Chủ tài khoản
                     </span>
                     <span className="font-mono font-bold text-white tracking-widest mt-0.5 select-all">
@@ -279,7 +279,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
+                    <span className="font-script text-[#d4af37]/50 text-[8px] uppercase tracking-tighter">
                       Ngân hàng
                     </span>
                     <span className="truncate text-white/90">
@@ -299,7 +299,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
 
             <button
               onClick={() => setIsGiftModalOpen(false)}
-              className="mt-10 w-full py-2.5 rounded-full border border-[#d4af37]/40 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#800020] transition-all font-bold uppercase text-[10px] tracking-widest shadow-xl"
+              className="font-script mt-10 w-full py-2.5 rounded-full border border-[#d4af37]/40 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#800020] transition-all font-bold uppercase text-[10px] tracking-widest shadow-xl"
             >
               Đóng cửa sổ
             </button>
