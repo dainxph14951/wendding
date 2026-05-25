@@ -168,15 +168,9 @@ const TimelinePopup = ({
 }) => {
   if (!isOpen) return null;
   return (
-    <div
-      style={{
-        paddingLeft: "14px",
-        paddingRight: "14px",
-        paddingTop: "0px",
-      }}
-      className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-300"
-    >
+    <div className="fixed inset-0 z-[1000] flex items-center p-4 justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
       <div
+        style={{ marginTop: "160vh" }}
         className="relative bg-[#fbf7f1] w-full max-w-md rounded-[2.5rem] p-8 md:p-10 shadow-2xl animate-in zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}
       >
