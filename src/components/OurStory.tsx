@@ -71,7 +71,7 @@ export const OurStory: React.FC<OurStoryProps> = ({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-12 items-center">
           {/* Cột Trái: Nội dung câu chuyện */}
           <div
             className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
