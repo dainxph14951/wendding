@@ -104,6 +104,13 @@ export const ThankYou: React.FC<ThankYouProps> = ({
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto space-y-10">
         {/* Header Section */}
+        <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
+          <img
+            src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
+            alt="pattern"
+            className="w-full h-full object-contain"
+          />
+        </div>
         <div className="space-y-4">
           <h2
             className={`font-script text-5xl md:text-8xl text-[#800020] tracking-widest transition-all duration-1000 ${

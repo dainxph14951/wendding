@@ -228,7 +228,13 @@ function App() {
                 Hồng Nhung
               </p>
             </div>
-
+            <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
+              <img
+                src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
+                alt="pattern"
+                className="w-full h-full object-contain"
+              />
+            </div>
             {/* Đường kẻ phân cách nghệ thuật */}
             <div className="invite-divider flex items-center justify-center gap-3 mb-6">
               <div className="h-[0.5px] w-10 bg-[#d4af37]/40" />

@@ -131,7 +131,7 @@ export const OurStory: React.FC<OurStoryProps> = ({
           className={`mt-20 transition-all duration-1000 delay-700 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="flex flex-col items-center gap-2">
-            <p className="text-[10px] tracking-[0.3em] text-[#d4af37] uppercase">
+            <p className="font-script text-[10px] tracking-[0.3em] text-[#d4af37] uppercase">
               Um thì...
             </p>
             <div className="w-[1px] h-12 bg-gradient-to-b from-[#d4af37] to-transparent" />

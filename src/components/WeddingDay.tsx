@@ -157,9 +157,16 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
       {/* Nút scroll xuống đồng điệu với các phần trên */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
         <div className="w-[1px] h-10 bg-gradient-to-t from-[#800020] to-transparent" />
-        <p className="text-[10px] tracking-[0.2em] text-[#800020] uppercase font-bold">
-          HiHi xem ảnh khum
+        <p className="font-script text-[10px] tracking-[0.2em] text-[#800020] uppercase font-bold">
+          Ảnh của chúng mình
         </p>
+      </div>
+      <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
+        <img
+          src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
+          alt="pattern"
+          className="w-full h-full object-contain"
+        />
       </div>
 
       <style

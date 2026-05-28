@@ -257,7 +257,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
 
   const invitationCards = [
     {
-      title: "Tiệc cưới nhà gái",
+      title: "TIỆC CƯỚI NHÀ GÁI",
       schedule: "THỨ TƯ - 10 : 00",
       date: "22 . 07 . 2026",
       lunarDate: "Tức Ngày 09 tháng 06 năm Bính Ngọ",
@@ -266,7 +266,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
       mapLink: "https://maps.app.goo.gl/2hLbqz5XWUXKwxkm6",
     },
     {
-      title: "Tiệc cưới nhà trai",
+      title: "TIỆC CƯỚI NHÀ TRAI",
       schedule: "THỨ 7 - 10:00",
       date: "25 . 07 . 2026",
       lunarDate: "Tức Ngày 12 tháng 6 năm Bính Ngọ",
@@ -330,10 +330,11 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <div className="text-center mb-16">
-            <p className="font-['Cormorant_Garamond'] italic text-3xl text-[#d4af37] mb-2">
+            {/* font-['Cormorant_Garamond'] */}
+            <p className="font-script italic text-3xl text-[#d4af37] mb-2">
               Save the date
             </p>
-            <h2 className="font-['Cormorant_Garamond'] italic text-5xl md:text-7xl text-[#800020] leading-tight">
+            <h2 className="font-script italic text-5xl md:text-7xl text-[#800020] leading-tight">
               Wedding Invitation
             </h2>
           </div>
@@ -386,34 +387,40 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
         <div
           className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
+          <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
+            <img
+              src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
+              alt="pattern"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <div className="text-center mb-12">
-            <h2 className="font-['Cormorant_Garamond'] italic text-5xl md:text-6xl text-[#800020] leading-tight">
+            <h2 className="font-script italic text-5xl md:text-6xl text-[#800020] leading-tight">
               Countdown Time
             </h2>
-            <p className="font-['Cormorant_Garamond'] italic text-2xl text-[#d4af37] mt-1">
+            <p className="font-script italic text-2xl text-[#d4af37] mt-1">
               Until we say I do
             </p>
           </div>
-
           <div className="flex flex-col items-center text-center mb-16">
-            <p className="text-6xl md:text-7xl font-serif font-bold text-[#800020] mb-6">
+            <p className="text-6xl md:text-7xl font-script font-bold text-[#800020] mb-6">
               10:00
             </p>
-            <div className="flex items-center gap-4 md:gap-8 mb-4 font-serif text-lg md:text-xl text-gray-600 uppercase tracking-widest">
+            <div className="flex items-center gap-4 md:gap-8 mb-4 font-script text-lg md:text-xl text-gray-600 uppercase tracking-widest">
               <span>Thứ 7</span>
               <div className="h-8 w-[1px] bg-gray-300" />
               <span>Ngày 25</span>
               <div className="h-8 w-[1px] bg-gray-300" />
               <span>Tháng 07</span>
             </div>
-            <p className="text-4xl font-serif text-gray-700 mb-8">2026</p>
+            <p className="text-4xl font-script text-gray-700 mb-8">2026</p>
 
             {/* Calendar */}
             <div className="relative bg-white/50 backdrop-blur-sm border border-[#d4af37]/30 rounded-[2rem] p-8 shadow-sm w-full max-w-sm">
-              <div className="font-['Cormorant_Garamond'] italic text-3xl text-[#800020] mb-6 border-b border-[#800020]/10 pb-2">
+              <div className="font-script italic text-3xl text-[#800020] mb-6 border-b border-[#800020]/10 pb-2">
                 Tháng 7 / 2026
               </div>
-              <div className="grid grid-cols-7 text-[10px] text-gray-400 mb-4 uppercase tracking-widest">
+              <div className="font-script grid grid-cols-7 text-[10px] text-gray-400 mb-4 uppercase tracking-widest">
                 <span>T2</span>
                 <span>T3</span>
                 <span>T4</span>
@@ -455,7 +462,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           </div>
 
           {/* Countdown Boxes */}
-          <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto">
+          <div className="font-script grid grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto">
             {[
               { v: timeLeft.days, l: "Ngày" },
               { v: timeLeft.hours, l: "Giờ" },
@@ -482,7 +489,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
         <div
           className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-center font-['Cormorant_Garamond'] italic text-4xl md:text-5xl text-[#800020] mb-12">
+          <h2 className="text-center font-script italic text-4xl md:text-5xl text-[#800020] mb-12">
             Chương Trình Hôn Lễ
           </h2>
           <div className="flex flex-col md:flex-row justify-center gap-8 px-4">
@@ -494,10 +501,10 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <div className="mb-6 flex justify-center text-[#800020] group-hover:scale-110 transition-transform">
                 <TimelineGuestIcon />
               </div>
-              <h4 className="font-['Cormorant_Garamond'] italic text-3xl text-[#800020]">
+              <h4 className="font-script italic text-3xl text-[#800020]">
                 Lễ Ăn Hỏi
               </h4>
-              <div className="mt-4 inline-block text-[#d4af37] text-xs tracking-[0.2em] uppercase border-b border-[#d4af37]/30">
+              <div className="font-script mt-4 inline-block text-[#d4af37] text-xs tracking-[0.2em] uppercase border-b border-[#d4af37]/30">
                 Xem lịch trình
               </div>
             </div>
@@ -510,10 +517,10 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
               <div className="mb-6 flex justify-center text-[#d4af37] group-hover:scale-110 transition-transform">
                 <TimelineRingsIcon />
               </div>
-              <h4 className="font-['Cormorant_Garamond'] italic text-3xl text-white">
+              <h4 className="font-script italic text-3xl text-white">
                 Lễ Cưới
               </h4>
-              <div className="mt-4 inline-block text-[#d4af37] text-xs tracking-[0.2em] uppercase border-b border-[#d4af37]/30">
+              <div className="font-script mt-4 inline-block text-[#d4af37] text-xs tracking-[0.2em] uppercase border-b border-[#d4af37]/30">
                 Xem lịch trình
               </div>
             </div>
