@@ -438,22 +438,39 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                 {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
                   <div
                     key={day}
-                    className="relative flex items-center justify-center"
+                    className="relative flex items-center justify-center min-h-[50px]" // Thêm min-h để các hàng đều nhau khi có chữ
                   >
                     {day === 25 || day === 22 ? (
-                      <div className="relative flex items-center justify-center">
-                        <svg
-                          viewBox="0 0 24 24"
-                          className="w-8 h-8 text-[#800020] fill-current opacity-80"
+                      <div className="flex flex-col items-center">
+                        {/* Container chứa Trái tim và Số */}
+                        <div
+                          className={`relative flex items-center justify-center ${
+                            day === 25 ? "animate-heart-blink" : ""
+                          }`}
                         >
-                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                        </svg>
-                        <span className="absolute text-white text-[10px] font-bold">
-                          {day}
+                          <svg
+                            viewBox="0 0 24 24"
+                            className={`w-8 h-8 text-[#800020] fill-current ${
+                              day === 25 ? "opacity-100" : "opacity-80"
+                            }`}
+                          >
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                          </svg>
+                          <span className="absolute text-white text-[10px] font-bold">
+                            {day}
+                          </span>
+                        </div>
+
+                        {/* Dòng chữ chú thích dưới chân */}
+                        <span
+                          className="text-[8px] font-semibold italic mt-0.5 text-[#800020] whitespace-nowrap"
+                          style={{ lineHeight: "1" }}
+                        >
+                          {day === 22 ? "Ăn hỏi" : "Ngày cưới"}
                         </span>
                       </div>
                     ) : (
-                      <span>{day}</span>
+                      <span className="text-gray-700">{day}</span>
                     )}
                   </div>
                 ))}
