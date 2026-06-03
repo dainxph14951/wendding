@@ -95,7 +95,7 @@ function App() {
     <ThankYou
       key="thankyou"
       weddingDate="25.07"
-      message="Hạnh phúc được bạn ở bên chúng mình"
+      message="Chúc mình sắp bắt đầu một trình mới cùng nhau. Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh. Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này"
       qrCodeGrom="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
       qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/v1778567878/z7817241470861_ed83c4396af8a2f385ad53f5d59b619a_m7mhca.jpg"
     />,
@@ -205,7 +205,6 @@ function App() {
           <div className="invitation-card relative w-[85%] max-w-[380px] bg-white rounded-[2.5rem] p-8 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center border border-[#d4af37]/20 animate-in fade-in zoom-in duration-1000">
             {/* Viền chỉ vàng mảnh bên trong tạo độ tinh tế */}
             <div className="absolute inset-3 border border-[#d4af37]/10 rounded-[1.8rem] pointer-events-none" />
-
             {/* Con dấu sáp (Pulse & Wiggle) */}
             <div className="invite-seal relative mx-auto mb-6 w-20 h-20 md:w-24 md:h-24">
               <div className="absolute inset-0 bg-[#d4af37]/20 rounded-full blur-xl animate-ping opacity-60" />
@@ -215,7 +214,6 @@ function App() {
                 className="relative z-10 w-full h-full object-contain drop-shadow-lg animate-[wiggle_3s_ease-in-out_infinite]"
               />
             </div>
-
             {/* Tên cặp đôi */}
             <div className="space-y-1 mb-6">
               <p className="font-script invite-name text-2xl md:text-3xl text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
@@ -227,7 +225,8 @@ function App() {
               <p className="font-script invite-name text-2xl md:text-3xl text-[#800020] font-bold tracking-tight uppercase uppercase leading-tight">
                 Hồng Nhung
               </p>
-            </div>
+            </div>{" "}
+                   
             <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
               <img
                 src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
@@ -241,7 +240,6 @@ function App() {
               <span className="text-[#d4af37] text-[10px]">✨</span>
               <div className="h-[0.5px] w-10 bg-[#d4af37]/40" />
             </div>
-
             {/* Thông tin ngày tháng */}
             <p className="invite-date text-[#800020]/70 font-script italic text-sm md:text-base mb-1">
               25 tháng 7, 2026
@@ -249,7 +247,6 @@ function App() {
             <p className="font-script invite-label text-[10px] tracking-[0.4em] text-gray-400 uppercase mb-8">
               Thân Mời
             </p>
-
             {/* Nút mở thiệp với hiệu ứng mượt */}
             <button
               type="button"

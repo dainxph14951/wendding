@@ -131,18 +131,18 @@ const TimelineCameraIcon = () => (
 const engagementTimeline: WeddingTimelineItem[] = [
   {
     time: "08:30",
-    label: "Lễ trao lễ vật & Dạm hỏi",
+    label: "Lễ dạm hỏi &",
     icon: <TimelineGuestIcon />,
   },
   {
-    time: "09:00",
-    label: "Tiệc trà thân mật",
+    time: "09:30",
+    label: "Đón tiếp khác mời",
     icon: <TimelineRingsIcon />,
   },
   { time: "10:00", label: "Khai tiệc", icon: <TimelineFeastIcon /> },
   {
     time: "11:00",
-    label: "Chụp hình cùng gia đình",
+    label: "Chụp hình lưu niệm",
     icon: <TimelineCameraIcon />,
   },
 ];
@@ -319,7 +319,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   return (
     <section
       ref={rootRef}
-      className="relative min-h-screen w-full flex flex-col items-center py-20 overflow-hidden"
+      className="relative w-full flex flex-col items-center py-20 overflow-hidden"
       style={{ background: "#fbf7f1" }}
     >
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
@@ -440,7 +440,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
                     key={day}
                     className="relative flex items-center justify-center"
                   >
-                    {day === 25 ? (
+                    {day === 25 || day === 22 ? (
                       <div className="relative flex items-center justify-center">
                         <svg
                           viewBox="0 0 24 24"

@@ -60,7 +60,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
   return (
     <section
       ref={rootRef}
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#fffafb]"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden"
     >
       {/* CSS Animations: Petals, Wiggle, and Glow */}
       <style
@@ -111,6 +111,21 @@ export const ThankYou: React.FC<ThankYouProps> = ({
             className="w-full h-full object-contain"
           />
         </div>
+        <div
+          className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100" : "opacity-0"}`}
+        >
+          <p className="text-xl md:text-2xl font-light text-[#800020]/80 tracking-[0.2em] mb-2 uppercase">
+            {weddingDate}
+          </p>
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <div className="h-[1px] w-8 bg-[#d4af37]/40" />
+            <span className="text-[#d4af37]">✨</span>
+            <div className="h-[1px] w-8 bg-[#d4af37]/40" />
+          </div>
+          <p className="font-script text-lg md:text-xl text-gray-500 italic max-w-lg mx-auto leading-relaxed">
+            "{message}"
+          </p>
+        </div>
         <div className="space-y-4">
           <h2
             className={`font-script text-5xl md:text-8xl text-[#800020] tracking-widest transition-all duration-1000 ${
@@ -121,21 +136,6 @@ export const ThankYou: React.FC<ThankYouProps> = ({
           >
             THANK YOU
           </h2>
-          <div
-            className={`transition-all duration-1000 delay-300 ${isVisible ? "opacity-100" : "opacity-0"}`}
-          >
-            <p className="text-xl md:text-2xl font-light text-[#800020]/80 tracking-[0.2em] mb-2 uppercase">
-              {weddingDate}
-            </p>
-            <div className="flex justify-center items-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-[#d4af37]/40" />
-              <span className="text-[#d4af37]">✨</span>
-              <div className="h-[1px] w-8 bg-[#d4af37]/40" />
-            </div>
-            <p className="font-script text-lg md:text-xl text-gray-500 italic max-w-lg mx-auto leading-relaxed">
-              "{message}"
-            </p>
-          </div>
         </div>
 
         {/* Lucky Envelope Section */}
