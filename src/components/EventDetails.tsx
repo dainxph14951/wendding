@@ -507,7 +507,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
           className={`transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <h2 className="text-center font-script italic text-4xl md:text-5xl text-[#800020] mb-12">
-            Chương Trình Hôn Lễ
+            Wedding Program
           </h2>
           <div className="flex flex-col md:flex-row justify-center gap-8 px-4">
             {/* Trigger Card 1 */}

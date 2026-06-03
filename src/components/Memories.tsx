@@ -94,7 +94,7 @@ export const Memories: React.FC<MemoriesProps> = ({ images }) => {
               className="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] opacity-100"
               style={{
                 background:
-                  "conic-gradient(from 90deg at 50% 50%, #800020 0%, #d4af37 25%, #800020 50%, #d4af37 75%, #800020 100%)",
+                  "conic-gradient(from 90deg at 50% 50%, #800020 0%, #dec67b 25%, #800020 50%, #dec67b 75%, #800020 100%)",
               }}
             />
 
