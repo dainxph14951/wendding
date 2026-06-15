@@ -197,7 +197,7 @@ function App() {
           <div
             className="absolute inset-0 bg-cover bg-center blur-sm brightness-[0.4] scale-110"
             style={{
-              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp')`,
+              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/v1781491946/anhbiathiep_keahgb.png')`,
             }}
           />
 
