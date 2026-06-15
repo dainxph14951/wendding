@@ -133,7 +133,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                 <span className="font-script text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
                   Groom
                 </span>
-                <p className="text-2xl md:text-4xl font-serif text-black">
+                <p className="font-script text-2xl md:text-4xl text-black">
                   {groomName}
                 </p>
               </div>
@@ -143,7 +143,7 @@ export const Welcome: React.FC<WelcomeProps> = ({
                 <span className="font-script text-[10px] md:text-xs font-sans tracking-[0.3em] text-black/40 uppercase">
                   Bride
                 </span>
-                <p className="text-2xl md:text-4xl font-serif text-black">
+                <p className="text-2xl md:text-4xl font-script text-black">
                   {brideName}
                 </p>
               </div>

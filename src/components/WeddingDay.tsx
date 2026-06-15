@@ -46,7 +46,7 @@ export const WeddingDay: React.FC<WeddingDayProps> = ({
 
   const bgImage =
     image ||
-    "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-wedding-day_kg9eyq.jpg";
+    "https://res.cloudinary.com/dvglujyon/image/upload/v1781493125/gao18517_aehljz.jpg";
 
   return (
     <section

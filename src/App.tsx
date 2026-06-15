@@ -53,27 +53,15 @@ function App() {
       key="memories"
       images={[
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-2_wuqfzl.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781492714/gao18089_rydhjm.jpg",
           alt: "couple 1",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-1_tebgdn.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781493116/gao18518_ltht8u.jpg",
           alt: "couple 2",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
-          alt: "couple 3",
-        },
-        {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-2_wuqfzl.jpg",
-          alt: "couple 1",
-        },
-        {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-1_tebgdn.jpg",
-          alt: "couple 2",
-        },
-        {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/img-welcome_fmpcl3.webp",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781492735/gao18092_pjk70v.jpg",
           alt: "couple 3",
         },
       ]}
