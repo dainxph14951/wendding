@@ -132,7 +132,7 @@ export const OurStory: React.FC<OurStoryProps> = ({
         >
           <div className="flex flex-col items-center gap-2">
             <p className="font-script text-[10px] tracking-[0.3em] text-[#d4af37] uppercase">
-              Um thì...
+              To Be Continued...
             </p>
             <div className="w-[1px] h-12 bg-gradient-to-b from-[#d4af37] to-transparent" />
           </div>

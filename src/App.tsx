@@ -33,6 +33,9 @@ function App() {
       quote="Xuân Đại ❤ Hồng Nhung"
     />,
     <WeddingDay
+      image={
+        "https://res.cloudinary.com/dvglujyon/image/upload/v1782050352/gao18283_1_dd8is2.jpg"
+      }
       key="wedding"
       mainText="We Get Married"
       description="Giữa muôn vạn vì sao rực rỡ, em chính là định mệnh hiển nhiên nhất của đời anh."
@@ -53,16 +56,36 @@ function App() {
       key="memories"
       images={[
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781492714/gao18089_rydhjm.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050038/a5_zqlskv.jpg",
           alt: "couple 1",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781493116/gao18518_ltht8u.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050040/a3_bkgxet.jpg",
           alt: "couple 2",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1781492735/gao18092_pjk70v.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050039/a2_nqiiil.jpg",
           alt: "couple 3",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050037/a1_yosqvc.jpg",
+          alt: "couple 4",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051372/gao18556_1_1_bs5zxx.jpg",
+          alt: "couple 5",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051625/gao18644_1_1_rzdxx0.jpg",
+          alt: "couple 6",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051877/gao18472_1_1_iwalhc.jpg",
+          alt: "couple 7",
+        },
+        {
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051896/gao18435_1_jk4hwk.jpg",
+          alt: "couple 8",
         },
       ]}
     />,
