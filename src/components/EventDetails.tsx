@@ -136,7 +136,7 @@ const engagementTimeline: WeddingTimelineItem[] = [
   },
   {
     time: "09:30",
-    label: "Đón tiếp khác mời",
+    label: "Đón tiếp khách mời",
     icon: <TimelineRingsIcon />,
   },
   { time: "10:00", label: "Khai tiệc", icon: <TimelineFeastIcon /> },

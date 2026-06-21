@@ -37,7 +37,7 @@ export const ThankYou: React.FC<ThankYouProps> = ({
       name: "CÔ DÂU",
       stk: "0395161551",
       bank: "MB Bank",
-      ctk: "Nguyễn Hồng Nhung",
+      ctk: "Nguyễn Thị Hồng Nhung",
       qrCode: qrCodeBride,
     },
   };
