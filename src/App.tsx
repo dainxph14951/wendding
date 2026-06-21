@@ -64,11 +64,11 @@ function App() {
           alt: "couple 2",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050039/a2_nqiiil.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782053058/gao18207_1_haxtac.jpg",
           alt: "couple 3",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050037/a1_yosqvc.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782053110/gao18089_1_skugzq.jpg",
           alt: "couple 4",
         },
         {
