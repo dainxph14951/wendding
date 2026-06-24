@@ -34,7 +34,7 @@ function App() {
     />,
     <WeddingDay
       image={
-        "https://res.cloudinary.com/dvglujyon/image/upload/v1782050352/gao18283_1_dd8is2.jpg"
+        "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782050352/gao18283_1_dd8is2.jpg"
       }
       key="wedding"
       mainText="We Get Married"
@@ -56,35 +56,35 @@ function App() {
       key="memories"
       images={[
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050038/a5_zqlskv.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782050038/a5_zqlskv.jpg",
           alt: "couple 1",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782050040/a3_bkgxet.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782050040/a3_bkgxet.jpg",
           alt: "couple 2",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782053058/gao18207_1_haxtac.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782053058/gao18207_1_haxtac.jpg",
           alt: "couple 3",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782053110/gao18089_1_skugzq.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782053110/gao18089_1_skugzq.jpg",
           alt: "couple 4",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051372/gao18556_1_1_bs5zxx.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782051372/gao18556_1_1_bs5zxx.jpg",
           alt: "couple 5",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051625/gao18644_1_1_rzdxx0.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782051625/gao18644_1_1_rzdxx0.jpg",
           alt: "couple 6",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051877/gao18472_1_1_iwalhc.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782051877/gao18472_1_1_iwalhc.jpg",
           alt: "couple 7",
         },
         {
-          src: "https://res.cloudinary.com/dvglujyon/image/upload/v1782051896/gao18435_1_jk4hwk.jpg",
+          src: "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1782051896/gao18435_1_jk4hwk.jpg",
           alt: "couple 8",
         },
       ]}
@@ -107,8 +107,8 @@ function App() {
       key="thankyou"
       weddingDate="25.07"
       message="Chúc mình sắp bắt đầu một trình mới cùng nhau. Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh. Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này"
-      qrCodeGrom="https://res.cloudinary.com/dvglujyon/image/upload/v1776849624/qr-n_wgpgos.jpg"
-      qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/v1778567878/z7817241470861_ed83c4396af8a2f385ad53f5d59b619a_m7mhca.jpg"
+      qrCodeGrom="https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1776849624/qr-n_wgpgos.jpg"
+      qrCodeBride="https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1778567878/z7817241470861_ed83c4396af8a2f385ad53f5d59b619a_m7mhca.jpg"
     />,
   ];
 
@@ -208,7 +208,7 @@ function App() {
           <div
             className="absolute inset-0 bg-cover bg-center blur-sm brightness-[0.4] scale-110"
             style={{
-              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/v1781491946/anhbiathiep_keahgb.png')`,
+              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1781491946/anhbiathiep_keahgb.png')`,
             }}
           />
 
@@ -220,7 +220,7 @@ function App() {
             <div className="invite-seal relative mx-auto mb-6 w-20 h-20 md:w-24 md:h-24">
               <div className="absolute inset-0 bg-[#d4af37]/20 rounded-full blur-xl animate-ping opacity-60" />
               <img
-                src="https://res.cloudinary.com/dvglujyon/image/upload/v1776916775/pngegg_1_zizqbj.png"
+                src="https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1776916775/pngegg_1_zizqbj.png"
                 alt="Seal"
                 className="relative z-10 w-full h-full object-contain drop-shadow-lg animate-[wiggle_3s_ease-in-out_infinite]"
               />
@@ -240,7 +240,7 @@ function App() {
                    
             <div className="absolute bottom-10 left-10 w-40 h-40 opacity-5 pointer-events-none grayscale">
               <img
-                src="https://res.cloudinary.com/dvglujyon/image/upload/v1776937337/pngegg_2_kre1q3.png"
+                src="https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1776937337/pngegg_2_kre1q3.png"
                 alt="pattern"
                 className="w-full h-full object-contain"
               />
