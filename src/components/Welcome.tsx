@@ -11,7 +11,7 @@ interface WelcomeProps {
 export const Welcome: React.FC<WelcomeProps> = ({
   groomName,
   brideName,
-  bgImage = "https://res.cloudinary.com/dvglujyon/image/upload/v1781491946/anhbiathiep_keahgb.png",
+  bgImage = "https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1783522231/avata2_nnq3t4.png",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -208,7 +208,7 @@ function App() {
           <div
             className="absolute inset-0 bg-cover bg-center blur-sm brightness-[0.4] scale-110"
             style={{
-              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1781491946/anhbiathiep_keahgb.png')`,
+              backgroundImage: `url('https://res.cloudinary.com/dvglujyon/image/upload/f_auto,q_auto/v1783522231/avata2_nnq3t4.png')`,
             }}
           />
 
