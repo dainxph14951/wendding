@@ -129,17 +129,17 @@ const TimelineCameraIcon = () => (
 
 // --- Data ---
 const engagementTimeline: WeddingTimelineItem[] = [
-  {
-    time: "08:30",
-    label: "Lễ dạm hỏi &",
-    icon: <TimelineGuestIcon />,
-  },
-  {
-    time: "09:30",
-    label: "Đón tiếp khách mời",
-    icon: <TimelineRingsIcon />,
-  },
-  { time: "10:00", label: "Khai tiệc", icon: <TimelineFeastIcon /> },
+  // {
+  //   time: "08:30",
+  //   label: "Lễ dạm hỏi &",
+  //   icon: <TimelineGuestIcon />,
+  // },
+  // {
+  //   time: "09:30",
+  //   label: "Đón tiếp khách mời",
+  //   icon: <TimelineRingsIcon />,
+  // },
+  { time: "09:00", label: "Khai tiệc", icon: <TimelineFeastIcon /> },
   {
     time: "11:00",
     label: "Chụp hình lưu niệm",
@@ -258,7 +258,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({
   const invitationCards = [
     {
       title: "TIỆC CƯỚI NHÀ GÁI",
-      schedule: "THỨ TƯ - 10 : 00",
+      schedule: "THỨ TƯ - 09 : 00",
       date: "22 . 07 . 2026",
       lunarDate: "Tức Ngày 09 tháng 06 năm Bính Ngọ",
       locationTitle: "TẠI TƯ GIA NHÀ GÁI",
